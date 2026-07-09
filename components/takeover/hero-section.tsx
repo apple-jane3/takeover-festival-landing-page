@@ -1,33 +1,73 @@
+import { useEffect, useRef } from 'react'
 import { Image } from '@/components/ui/image'
 import { ChevronDown } from 'lucide-react'
 import { FESTIVAL_DATE_RANGE, TICKETS_URL } from './config'
 
-function HeroWave() {
+const WAVE_PATH =
+  'M0,64 C240,96 480,32 720,64 C960,96 1200,32 1440,64 L1440,120 L0,120 Z'
+const WAVE_CREST = 'M0,64 C240,96 480,32 720,64 C960,96 1200,32 1440,64'
+const WAVE_DURATION_MS = 16000
+
+function WaveTile() {
   return (
-    <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-28 overflow-hidden sm:h-36">
-      <svg
-        viewBox="0 0 1440 120"
-        preserveAspectRatio="none"
-        className="absolute bottom-0 h-full w-[200%] animate-wave-drift text-background"
-        aria-hidden="true"
-      >
-        <path
-          fill="currentColor"
-          d="M0,64 C240,96 480,32 720,64 C960,96 1200,32 1440,64 L1440,120 L0,120 Z"
-        />
-        <path
-          fill="currentColor"
-          fillOpacity="0.5"
-          d="M0,80 C360,48 720,96 1080,72 C1260,60 1380,84 1440,80 L1440,120 L0,120 Z"
-        />
-      </svg>
+    <svg
+      viewBox="0 0 1440 120"
+      preserveAspectRatio="none"
+      className="h-full min-w-0 flex-[0_0_50%]"
+      aria-hidden="true"
+    >
+      <path fill="#fbf5ea" d={WAVE_PATH} />
+      <path
+        fill="none"
+        stroke="rgba(33, 24, 18, 0.28)"
+        strokeWidth="3"
+        d={WAVE_CREST}
+      />
+    </svg>
+  )
+}
+
+function HeroWave() {
+  const containerRef = useRef<HTMLDivElement>(null)
+  const trackRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const container = containerRef.current
+    const track = trackRef.current
+    if (!container || !track) return
+
+    let rafId = 0
+    let start: number | null = null
+
+    const step = (now: number) => {
+      if (start === null) start = now
+      const tileWidth = container.offsetWidth
+      const elapsed = (now - start) % WAVE_DURATION_MS
+      const offset = (elapsed / WAVE_DURATION_MS) * tileWidth
+      track.style.transform = `translate3d(-${offset}px, 0, 0)`
+      rafId = requestAnimationFrame(step)
+    }
+
+    rafId = requestAnimationFrame(step)
+    return () => cancelAnimationFrame(rafId)
+  }, [])
+
+  return (
+    <div
+      ref={containerRef}
+      className="pointer-events-none absolute inset-x-0 bottom-0 z-20 h-32 overflow-hidden sm:h-40"
+    >
+      <div ref={trackRef} className="flex h-full w-[200%] will-change-transform">
+        <WaveTile />
+        <WaveTile />
+      </div>
     </div>
   )
 }
 
 export function HeroSection() {
   return (
-    <section id="top" className="relative flex min-h-[88vh] items-center justify-center overflow-hidden pb-16">
+    <section id="top" className="relative flex min-h-[95vh] items-center justify-center overflow-hidden pb-16">
       <div className="absolute inset-0 overflow-hidden">
         <Image
           src="/images/hero.jpg"
@@ -78,7 +118,7 @@ export function HeroSection() {
       <a
         href="#about"
         aria-label="Scroll to learn more"
-        className="absolute bottom-12 left-1/2 z-20 -translate-x-1/2 text-white/80 transition-colors hover:text-teal sm:bottom-28"
+        className="absolute bottom-14 left-1/2 z-30 -translate-x-1/2 text-white/80 transition-colors hover:text-teal sm:bottom-32"
       >
         <ChevronDown className="h-8 w-8 animate-bounce" />
       </a>

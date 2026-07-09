@@ -13,7 +13,7 @@ const slides: Slide[] = [
 
 export function PreviousEvents() {
   return (
-    <section id="past-events" className="bg-secondary py-20 md:py-28">
+    <section id="gallery" className="scroll-mt-24 bg-secondary py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-4 md:px-8">
         <Reveal className="mb-10 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-2xl">
@@ -34,9 +34,7 @@ export function PreviousEvents() {
         </Reveal>
 
         <Reveal delay={120}>
-          <div id="gallery">
-            <Carousel slides={slides} />
-          </div>
+          <Carousel slides={slides} />
         </Reveal>
       </div>
     </section>

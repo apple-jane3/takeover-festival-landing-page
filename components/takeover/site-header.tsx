@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, type MouseEvent } from 'react'
 import { Image } from '@/components/ui/image'
 import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
@@ -14,6 +14,27 @@ const navLinks = [
   { label: 'Location', href: '#location' },
   { label: 'FAQ', href: '#faq' },
 ]
+
+const HEADER_OFFSET = 72
+
+function scrollToHash(hash: string) {
+  const id = hash.startsWith('#') ? hash.slice(1) : hash
+  if (!id) return
+
+  const target = document.getElementById(id)
+  if (!target) return
+
+  const top = target.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET
+  window.scrollTo({ top, behavior: 'smooth' })
+  window.history.pushState(null, '', `#${id}`)
+}
+
+function handleNavClick(event: MouseEvent<HTMLAnchorElement>, href: string, onNavigate?: () => void) {
+  if (!href.startsWith('#')) return
+  event.preventDefault()
+  scrollToHash(href)
+  onNavigate?.()
+}
 
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false)
@@ -36,7 +57,12 @@ export function SiteHeader() {
       )}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 md:px-8">
-        <a href="#top" className="flex items-center gap-3" aria-label="Takeover Festival home">
+        <a
+          href="#top"
+          onClick={(e) => handleNavClick(e, '#top')}
+          className="flex items-center gap-3"
+          aria-label="Takeover Festival home"
+        >
           <Image
             src="/images/logo.png"
             alt="Takeover Festival logo"
@@ -60,6 +86,7 @@ export function SiteHeader() {
             <a
               key={link.href}
               href={link.href}
+              onClick={(e) => handleNavClick(e, link.href)}
               className={cn(
                 'text-sm font-medium transition-colors hover:text-teal',
                 scrolled ? 'text-white/85' : 'text-white/90 drop-shadow-sm',
@@ -98,7 +125,7 @@ export function SiteHeader() {
               <a
                 key={link.href}
                 href={link.href}
-                onClick={() => setOpen(false)}
+                onClick={(e) => handleNavClick(e, link.href, () => setOpen(false))}
                 className="border-b border-white/10 py-3 text-base font-medium text-white/90"
               >
                 {link.label}
