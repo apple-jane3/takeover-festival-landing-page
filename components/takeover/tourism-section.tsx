@@ -3,21 +3,21 @@ import { Reveal } from './reveal'
 
 const spots = [
   {
-    title: 'Poro Point',
-    caption: 'Cliffs, coves and the festival grounds.',
-    src: '/images/tourism-poropoint.png',
+    title: 'Poro Point Baywalk Arena',
+    caption: 'Cliffs, coves, and the festival grounds overlooking the West Philippine Sea.',
+    src: '/images/tourism-poropoint.jpg',
     span: 'md:col-span-2 md:row-span-2',
   },
   {
-    title: 'Thunderbird Resort',
-    caption: 'Stay steps from the stage.',
-    src: '/images/tourism-resort.png',
+    title: 'DOT Tourism Exhibition',
+    caption: 'Official Department of Tourism expo in twin white dome marquees.',
+    src: '/images/prev-6.png',
     span: '',
   },
   {
-    title: 'San Juan Surf',
-    caption: 'The surf capital of the North.',
-    src: '/images/tourism-sanjuan.png',
+    title: 'Food Park Haven',
+    caption: '50+ food trucks, artisanal seafood stalls, and curated drink lounges.',
+    src: '/images/upcoming.png',
     span: '',
   },
 ]
@@ -34,8 +34,24 @@ export function TourismSection() {
             Tourism &amp; Business Expo
           </h2>
           <p className="mt-4 text-pretty text-lg leading-relaxed text-foreground/70">
-            Discover La Union with partner resorts, hotels, airlines and a local business expo
-            celebrating the region.
+            Discover La Union with DOT-endorsed tourism exhibitions, partner resorts, hotels,
+            airlines, and a B2B business expo celebrating the region.
+          </p>
+        </Reveal>
+
+        <Reveal
+          delay={60}
+          className="mb-10 rounded-3xl border border-border bg-card p-6 shadow-sm"
+        >
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-teal">
+            Official Partner
+          </p>
+          <p className="mt-2 font-display text-2xl text-primary">
+            Department of Tourism — Region 1
+          </p>
+          <p className="mt-2 text-pretty text-sm leading-relaxed text-foreground/75 sm:text-base">
+            Showcasing Ilocos Norte, Ilocos Sur, La Union, and Pangasinan through the
+            &ldquo;Find The One In Region 1&rdquo; tourism campaign.
           </p>
         </Reveal>
 

@@ -4,18 +4,18 @@ import { Reveal } from './reveal'
 const causes = [
   {
     title: 'Beach Cleanup',
-    caption: 'Leaving the shoreline better than we found it.',
-    src: '/images/cause-cleanup.png',
+    caption: 'Interactive morning cleanup sessions with festival-goers, local businesses, and artists.',
+    src: '/images/tourism-poropoint.jpg',
   },
   {
-    title: 'Tree Planting',
-    caption: 'Growing coastal forests for the next generation.',
+    title: 'Mangrove Restoration',
+    caption: 'Sponsoring mangrove and native tree planting in critical coastal buffer regions.',
     src: '/images/cause-trees.png',
   },
   {
-    title: 'Wellness Fun Run',
-    caption: 'Moving together for mind, body and community.',
-    src: '/images/cause-run.png',
+    title: 'Environmental Stewardship',
+    caption: 'Partnering with local NGOs and La Union government for coastal remediation during the festival.',
+    src: '/images/prev-4.jpg',
   },
 ]
 
@@ -31,7 +31,7 @@ export function CausesSection() {
             Community Causes
           </h2>
           <p className="mt-4 text-pretty text-lg leading-relaxed text-white/75">
-            Every beat has a purpose. This is the soul of Takeover.
+            Every beat has a purpose. Two major eco actions anchor the soul of Takeover.
           </p>
         </Reveal>
 

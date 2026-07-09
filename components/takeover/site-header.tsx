@@ -6,10 +6,13 @@ import { TICKETS_URL } from './config'
 
 const navLinks = [
   { label: 'About', href: '#about' },
-  { label: 'Lineup', href: '#artists' },
+  { label: 'Past Events', href: '#past-events' },
   { label: 'Festival', href: '#festival' },
+  { label: 'Tickets', href: '#tickets' },
+  { label: 'Lineup', href: '#artists' },
   { label: 'Causes', href: '#causes' },
   { label: 'Travel', href: '#travel' },
+  { label: 'Sponsors', href: '#sponsors' },
 ]
 
 export function SiteHeader() {
@@ -26,8 +29,10 @@ export function SiteHeader() {
   return (
     <header
       className={cn(
-        'fixed inset-x-0 top-0 z-50 transition-colors duration-300',
-        scrolled ? 'bg-ocean-deep/90 backdrop-blur-md shadow-lg' : 'bg-transparent',
+        'fixed inset-x-0 top-0 z-50 backdrop-blur-md transition-colors duration-300',
+        scrolled
+          ? 'border-b border-white/10 bg-ocean-deep/90 shadow-lg'
+          : 'border-b border-white/15',
       )}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 md:px-8">
@@ -37,20 +42,28 @@ export function SiteHeader() {
             alt="Takeover Festival logo"
             width={44}
             height={44}
-            className="h-11 w-11 rounded-full object-cover"
+            className="h-11 w-11 object-contain"
             priority
           />
-          <span className="font-display text-xl tracking-wide text-white md:text-2xl">
+          <span
+            className={cn(
+              'font-display text-xl tracking-wide md:text-2xl',
+              scrolled ? 'text-white' : 'text-white drop-shadow-sm',
+            )}
+          >
             TAKEOVER
           </span>
         </a>
 
-        <div className="hidden items-center gap-8 md:flex">
+        <div className="hidden items-center gap-6 lg:flex">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-white/85 transition-colors hover:text-teal"
+              className={cn(
+                'text-sm font-medium transition-colors hover:text-teal',
+                scrolled ? 'text-white/85' : 'text-white/90 drop-shadow-sm',
+              )}
             >
               {link.label}
             </a>
@@ -69,7 +82,7 @@ export function SiteHeader() {
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full text-white md:hidden"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full text-white lg:hidden"
             aria-label={open ? 'Close menu' : 'Open menu'}
             aria-expanded={open}
           >
@@ -79,7 +92,7 @@ export function SiteHeader() {
       </nav>
 
       {open && (
-        <div className="border-t border-white/10 bg-ocean-deep/95 px-4 pb-6 pt-2 backdrop-blur-md md:hidden">
+        <div className="border-t border-white/15 px-4 pb-6 pt-2 backdrop-blur-md lg:hidden">
           <div className="flex flex-col">
             {navLinks.map((link) => (
               <a

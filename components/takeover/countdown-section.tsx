@@ -1,7 +1,13 @@
 import { useEffect, useState } from 'react'
 import { Image } from '@/components/ui/image'
-import { MapPin, Music, Tent, Users } from 'lucide-react'
-import { FESTIVAL_DATE, FESTIVAL_LOCATION, TICKETS_URL } from './config'
+import { MapPin, Music, Tent, Users, UtensilsCrossed } from 'lucide-react'
+import {
+  FESTIVAL_CITY,
+  FESTIVAL_DATE_RANGE,
+  FESTIVAL_LOCATION,
+  FESTIVAL_START,
+  TICKETS_URL,
+} from './config'
 
 type TimeLeft = { days: number; hours: number; minutes: number; seconds: number }
 
@@ -16,13 +22,14 @@ function getTimeLeft(target: number): TimeLeft {
 }
 
 const highlights = [
-  { icon: Music, label: '3 Stages' },
-  { icon: Users, label: '20+ Artists' },
-  { icon: Tent, label: 'Beachfront Camping' },
+  { icon: Music, label: 'Main Stage + VIP Pavilions' },
+  { icon: Users, label: 'DOT Tourism Expo' },
+  { icon: Tent, label: 'Wellness Zone' },
+  { icon: UtensilsCrossed, label: 'Food Park' },
 ]
 
 export function CountdownSection() {
-  const target = new Date(FESTIVAL_DATE).getTime()
+  const target = new Date(FESTIVAL_START).getTime()
   const [time, setTime] = useState<TimeLeft | null>(null)
 
   useEffect(() => {
@@ -42,8 +49,8 @@ export function CountdownSection() {
     <section id="festival" className="relative overflow-hidden py-24 md:py-32">
       <div className="absolute inset-0 bg-fixed">
         <Image
-          src="/images/upcoming.png"
-          alt="Aerial view of the beachfront festival at night"
+          src="/images/tourism-poropoint.jpg"
+          alt="Poro Point coastline overlooking the festival grounds"
           fill
           sizes="100vw"
           loading="lazy"
@@ -57,14 +64,14 @@ export function CountdownSection() {
           The Main Event
         </span>
         <h2 className="mt-3 text-balance font-display text-4xl leading-tight text-white md:text-6xl">
-          November Festival
+          {FESTIVAL_DATE_RANGE}
         </h2>
         <p className="mt-4 inline-flex items-center gap-2 text-pretty text-lg text-white/85">
-          <MapPin className="h-5 w-5 text-teal" aria-hidden="true" />
+          <MapPin className="h-5 w-5 shrink-0 text-teal" aria-hidden="true" />
           {FESTIVAL_LOCATION}
         </p>
+        <p className="mt-1 text-sm text-white/70">{FESTIVAL_CITY}</p>
 
-        {/* Countdown */}
         <div className="mx-auto mt-10 grid max-w-2xl grid-cols-4 gap-3 sm:gap-5">
           {units.map((unit) => (
             <div
@@ -81,7 +88,6 @@ export function CountdownSection() {
           ))}
         </div>
 
-        {/* Highlights */}
         <ul className="mx-auto mt-10 flex flex-wrap items-center justify-center gap-3">
           {highlights.map((item) => (
             <li

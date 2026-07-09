@@ -1,9 +1,15 @@
 import { Image } from '@/components/ui/image'
 import { Mail, MapPin, Phone } from 'lucide-react'
-import { FESTIVAL_LOCATION } from './config'
+import {
+  CONTACT_EMAIL,
+  CONTACT_PHONE,
+  CONTACT_PHONE_HREF,
+  FESTIVAL_CITY,
+  HASHTAGS,
+  SITE_URL,
+  SOCIAL_LINKS,
+} from './config'
 
-// Brand social icons aren't available in the installed lucide-react build,
-// so small inline brand glyphs are used instead.
 function FacebookIcon({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className={className}>
@@ -22,18 +28,10 @@ function InstagramIcon({ className }: { className?: string }) {
   )
 }
 
-function TikTokIcon({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className={className}>
-      <path d="M16.5 3c.3 2.1 1.5 3.6 3.5 3.9v2.4c-1.3.1-2.5-.3-3.5-.9v6.4c0 3.3-2.5 5.6-5.5 5.6-2.9 0-5-2-5-4.8 0-2.9 2.3-4.9 5.4-4.6v2.5c-.4-.1-.9-.2-1.3-.1-1.2.1-2 .9-2 2.1 0 1.3 1 2.1 2.3 2.1 1.4 0 2.4-1 2.4-2.7V3h3.2Z" />
-    </svg>
-  )
-}
-
 const socials = [
-  { label: 'Facebook', href: 'https://facebook.com', Icon: FacebookIcon },
-  { label: 'Instagram', href: 'https://instagram.com', Icon: InstagramIcon },
-  { label: 'TikTok', href: 'https://tiktok.com', Icon: TikTokIcon },
+  { label: 'Facebook', href: SOCIAL_LINKS.facebook, Icon: FacebookIcon },
+  { label: 'TakeOver Lounge', href: SOCIAL_LINKS.facebookLounge, Icon: FacebookIcon },
+  { label: 'Instagram', href: SOCIAL_LINKS.instagram, Icon: InstagramIcon },
 ]
 
 export function SiteFooter() {
@@ -41,7 +39,6 @@ export function SiteFooter() {
     <footer className="bg-ocean-deep text-white">
       <div className="mx-auto max-w-7xl px-4 py-16 md:px-8">
         <div className="grid gap-10 md:grid-cols-3">
-          {/* Brand */}
           <div>
             <div className="flex items-center gap-3">
               <Image
@@ -49,48 +46,57 @@ export function SiteFooter() {
                 alt="Takeover Festival logo"
                 width={48}
                 height={48}
-                className="h-12 w-12 rounded-full object-cover"
+                className="h-12 w-12 object-contain"
               />
               <span className="font-display text-2xl tracking-wide">TAKEOVER</span>
             </div>
             <p className="mt-4 max-w-xs text-pretty text-sm leading-relaxed text-white/70">
-              Music, Waves &amp; Purpose. A beachfront celebration in La Union.
+              Party With a Purpose. A 3-day beachfront celebration in La Union.
             </p>
+            <p className="mt-3 text-sm text-teal">{HASHTAGS.join(' · ')}</p>
           </div>
 
-          {/* Contact */}
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-teal">Contact</h3>
             <ul className="mt-4 space-y-3 text-sm text-white/80">
               <li>
                 <a
-                  href="mailto:hello@takeoverfestival.com"
-                  className="inline-flex items-center gap-2 transition-colors hover:text-teal"
+                  href={SITE_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-colors hover:text-teal"
                 >
-                  <Mail className="h-4 w-4" aria-hidden="true" />
-                  hello@takeoverfestival.com
+                  {SITE_URL.replace('https://', '')}
                 </a>
               </li>
               <li>
                 <a
-                  href="tel:+639171234567"
+                  href={`mailto:${CONTACT_EMAIL}`}
+                  className="inline-flex items-center gap-2 transition-colors hover:text-teal"
+                >
+                  <Mail className="h-4 w-4" aria-hidden="true" />
+                  {CONTACT_EMAIL}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={CONTACT_PHONE_HREF}
                   className="inline-flex items-center gap-2 transition-colors hover:text-teal"
                 >
                   <Phone className="h-4 w-4" aria-hidden="true" />
-                  +63 917 123 4567
+                  {CONTACT_PHONE}
                 </a>
               </li>
               <li className="inline-flex items-start gap-2">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" />
-                {FESTIVAL_LOCATION}
+                {FESTIVAL_CITY}
               </li>
             </ul>
           </div>
 
-          {/* Social */}
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-teal">Follow</h3>
-            <div className="mt-4 flex gap-3">
+            <div className="mt-4 flex flex-wrap gap-3">
               {socials.map(({ label, href, Icon }) => (
                 <a
                   key={label}

@@ -2,12 +2,8 @@ import { Image } from '@/components/ui/image'
 import { Reveal } from './reveal'
 
 const artists = [
-  { name: 'Mayonnaise', genre: 'Alt Rock', src: '/images/artist-1.png' },
-  { name: 'Brownman Revival', genre: 'Reggae', src: '/images/artist-2.png' },
-  { name: 'Clara Beach', genre: 'Soul / R&B', src: '/images/artist-3.png' },
-  { name: 'DJ Kaway', genre: 'House', src: '/images/artist-4.png' },
-  { name: 'North Swell', genre: 'Hip Hop', src: '/images/artist-5.png' },
-  { name: 'Tidal Twins', genre: 'Indie Pop', src: '/images/artist-6.png' },
+  { name: 'Mayonnaise', genre: 'Alt Rock', src: '/images/artist-1.png', slug: 'mayonnaise' },
+  { name: 'Brownman Revival', genre: 'Reggae', src: '/images/artist-2.png', slug: 'brownman-revival' },
 ]
 
 export function ArtistsSection() {
@@ -23,19 +19,22 @@ export function ArtistsSection() {
           </h2>
         </Reveal>
 
-        <div className="grid grid-cols-2 gap-4 md:grid-cols-3 md:gap-6">
+        <div className="mx-auto grid max-w-3xl grid-cols-1 gap-6 sm:grid-cols-2">
           {artists.map((artist, i) => (
             <Reveal
               as="article"
               key={artist.name}
-              delay={(i % 3) * 100}
+              delay={i * 100}
               className="group relative aspect-[3/4] overflow-hidden rounded-3xl shadow-lg"
             >
+              <a href={`#artists-${artist.slug}`} className="absolute inset-0 z-10" aria-label={`${artist.name} — more info coming soon`}>
+                <span className="sr-only">{artist.name}</span>
+              </a>
               <Image
                 src={artist.src}
                 alt={`${artist.name} performing`}
                 fill
-                sizes="(max-width: 768px) 50vw, 33vw"
+                sizes="(max-width: 768px) 100vw, 50vw"
                 loading="lazy"
                 className="object-cover transition-transform duration-700 group-hover:scale-110"
               />

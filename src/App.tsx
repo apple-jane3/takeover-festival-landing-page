@@ -3,6 +3,7 @@ import { HeroSection } from '@/components/takeover/hero-section'
 import { AboutSection } from '@/components/takeover/about-section'
 import { PreviousEvents } from '@/components/takeover/previous-events'
 import { CountdownSection } from '@/components/takeover/countdown-section'
+import { TicketsSection } from '@/components/takeover/tickets-section'
 import { ArtistsSection } from '@/components/takeover/artists-section'
 import { CausesSection } from '@/components/takeover/causes-section'
 import { TourismSection } from '@/components/takeover/tourism-section'
@@ -18,6 +19,7 @@ export default function App() {
         <AboutSection />
         <PreviousEvents />
         <CountdownSection />
+        <TicketsSection />
         <ArtistsSection />
         <CausesSection />
         <TourismSection />
