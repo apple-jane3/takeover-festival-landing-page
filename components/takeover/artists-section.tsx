@@ -1,20 +1,21 @@
 import { Calendar, ChevronRight } from 'lucide-react'
 import { Image } from '@/components/ui/image'
 import { Reveal } from './reveal'
+import { assetUrl } from './config'
 
 const artists = [
   {
     name: 'Mayonnaise',
     genre: 'Alt Rock',
     date: 'Nov 28, 2026',
-    src: '/images/artist-1.png',
+    src: assetUrl('/images/artist-1.png'),
     slug: 'mayonnaise',
   },
   {
     name: 'Brownman Revival',
     genre: 'Reggae',
     date: 'Nov 29, 2026',
-    src: '/images/artist-2.png',
+    src: assetUrl('/images/artist-2.png'),
     slug: 'brownman-revival',
   },
 ]

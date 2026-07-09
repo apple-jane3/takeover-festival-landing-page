@@ -7,6 +7,7 @@ import {
   FESTIVAL_LOCATION,
   FESTIVAL_START,
   TICKETS_URL,
+  assetUrl,
 } from './config'
 
 type TimeLeft = { days: number; hours: number; minutes: number; seconds: number }
@@ -49,7 +50,7 @@ export function CountdownSection() {
     <section id="festival" className="relative overflow-hidden py-24 md:py-32">
       <div className="absolute inset-0 bg-fixed">
         <Image
-          src="/images/tourism-poropoint.jpg"
+          src={assetUrl('/images/tourism-poropoint.jpg')}
           alt="Poro Point coastline overlooking the festival grounds"
           fill
           sizes="100vw"

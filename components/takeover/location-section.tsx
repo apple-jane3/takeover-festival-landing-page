@@ -1,7 +1,7 @@
 import { MapPin, Navigation } from 'lucide-react'
 import { Image } from '@/components/ui/image'
 import { Reveal } from './reveal'
-import { FESTIVAL_CITY, FESTIVAL_LOCATION, MAP_EMBED_URL } from './config'
+import { FESTIVAL_CITY, FESTIVAL_LOCATION, MAP_EMBED_URL, assetUrl } from './config'
 
 export function LocationSection() {
   return (
@@ -23,7 +23,7 @@ export function LocationSection() {
         <div className="grid gap-6 lg:grid-cols-2">
           <Reveal className="relative aspect-[4/3] overflow-hidden rounded-3xl shadow-xl lg:aspect-auto lg:min-h-[420px]">
             <Image
-              src="/images/tourism-poropoint.jpg"
+              src={assetUrl('/images/tourism-poropoint.jpg')}
               alt="Aerial view of Poro Point coastline"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"

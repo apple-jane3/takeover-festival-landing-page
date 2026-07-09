@@ -1,24 +1,25 @@
 import { Heart, Sprout, Waves } from 'lucide-react'
 import { Image } from '@/components/ui/image'
 import { Reveal } from './reveal'
+import { assetUrl } from './config'
 
 const causes = [
   {
     title: 'Beach Cleanup',
     caption: 'Morning shoreline sessions with festival-goers and local partners.',
-    src: '/images/tourism-poropoint.jpg',
+    src: assetUrl('/images/tourism-poropoint.jpg'),
     icon: Waves,
   },
   {
     title: 'Tree Planting',
     caption: 'Mangrove and native tree restoration in coastal buffer zones.',
-    src: '/images/cause-trees.png',
+    src: assetUrl('/images/cause-trees.png'),
     icon: Sprout,
   },
   {
     title: 'Community Support',
     caption: 'NGO and government partnerships for lasting coastal impact.',
-    src: '/images/prev-4.jpg',
+    src: assetUrl('/images/prev-4.jpg'),
     icon: Heart,
   },
 ]

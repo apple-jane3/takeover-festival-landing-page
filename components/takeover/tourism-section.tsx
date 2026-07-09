@@ -1,7 +1,7 @@
 import { Building2, Hotel, MapPin, Plane, Store, Waves } from 'lucide-react'
 import { Image } from '@/components/ui/image'
 import { Reveal } from './reveal'
-import { TOURISM_PARTNERS } from './config'
+import { TOURISM_PARTNERS, assetUrl } from './config'
 
 const iconMap = {
   hotel: Hotel,
@@ -16,19 +16,19 @@ const spots = [
   {
     title: 'Poro Point Baywalk Arena',
     caption: 'Cliffs, coves, and the festival grounds overlooking the West Philippine Sea.',
-    src: '/images/tourism-poropoint.jpg',
+    src: assetUrl('/images/tourism-poropoint.jpg'),
     span: 'md:col-span-2 md:row-span-2',
   },
   {
     title: 'DOT Tourism Exhibition',
     caption: 'Official Department of Tourism expo in twin white dome marquees.',
-    src: '/images/prev-6.png',
+    src: assetUrl('/images/prev-6.png'),
     span: '',
   },
   {
     title: 'Food Park Haven',
     caption: '50+ food trucks, artisanal seafood stalls, and curated drink lounges.',
-    src: '/images/upcoming.png',
+    src: assetUrl('/images/upcoming.png'),
     span: '',
   },
 ]

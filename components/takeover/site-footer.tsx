@@ -10,6 +10,7 @@ import {
   NEWSLETTER_EMAIL,
   SITE_URL,
   SOCIAL_LINKS,
+  assetUrl,
 } from './config'
 
 function FacebookIcon({ className }: { className?: string }) {
@@ -71,7 +72,7 @@ export function SiteFooter() {
           <div>
             <div className="flex items-center gap-3">
               <Image
-                src="/images/logo.png"
+                src={assetUrl('/images/logo.png')}
                 alt="Takeover Festival logo"
                 width={48}
                 height={48}

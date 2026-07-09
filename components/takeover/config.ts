@@ -1,3 +1,6 @@
+export const assetUrl = (path: string) =>
+  `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`
+
 export const TICKETS_URL = 'https://takeover.helixpay.ph/'
 
 export const FESTIVAL_START = '2026-11-27T16:00:00+08:00'

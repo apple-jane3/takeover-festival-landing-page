@@ -1,13 +1,13 @@
 import { Image } from '@/components/ui/image'
 import { Reveal } from './reveal'
-import { TICKETS_URL } from './config'
+import { TICKETS_URL, assetUrl } from './config'
 
 export function ExperienceSection() {
   return (
     <section className="relative overflow-hidden py-28 md:py-36">
       <div className="absolute inset-0">
         <Image
-          src="/images/upcoming.png"
+          src={assetUrl('/images/upcoming.png')}
           alt="Festival crowd at Poro Point at night"
           fill
           sizes="100vw"

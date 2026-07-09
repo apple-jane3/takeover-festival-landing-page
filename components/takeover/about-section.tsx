@@ -1,6 +1,7 @@
 import { Briefcase, Heart, Music, Palmtree } from 'lucide-react'
 import { Image } from '@/components/ui/image'
 import { Reveal } from './reveal'
+import { assetUrl } from './config'
 
 const pillars = [
   { icon: Music, label: 'Music', caption: 'World-class headliners on the beach' },
@@ -15,7 +16,7 @@ export function AboutSection() {
       <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 md:grid-cols-2 md:gap-16 md:px-8">
         <Reveal className="group relative aspect-[4/5] overflow-hidden rounded-3xl shadow-xl">
           <Image
-            src="/images/tourism-poropoint.jpg"
+            src={assetUrl('/images/tourism-poropoint.jpg')}
             alt="Poro Point coastline in San Fernando, La Union"
             fill
             sizes="(max-width: 768px) 100vw, 50vw"

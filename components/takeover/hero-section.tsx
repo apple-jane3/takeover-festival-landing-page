@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { Image } from '@/components/ui/image'
 import { ChevronDown } from 'lucide-react'
-import { FESTIVAL_DATE_RANGE, TICKETS_URL } from './config'
+import { FESTIVAL_DATE_RANGE, TICKETS_URL, assetUrl } from './config'
 
 const WAVE_PATH =
   'M0,64 C240,96 480,32 720,64 C960,96 1200,32 1440,64 L1440,120 L0,120 Z'
@@ -70,7 +70,7 @@ export function HeroSection() {
     <section id="top" className="relative flex min-h-[95vh] items-center justify-center overflow-hidden pb-16">
       <div className="absolute inset-0 overflow-hidden">
         <Image
-          src="/images/hero.jpg"
+          src={assetUrl('/images/hero.jpg')}
           alt="Tropical beach in La Union with palm trees and turquoise water"
           fill
           priority
@@ -82,7 +82,7 @@ export function HeroSection() {
 
       <div className="relative z-10 mx-auto flex max-w-4xl flex-col items-center px-4 pt-20 text-center">
         <Image
-          src="/images/logo.png"
+          src={assetUrl('/images/logo.png')}
           alt="Takeover Festival logo"
           width={120}
           height={120}

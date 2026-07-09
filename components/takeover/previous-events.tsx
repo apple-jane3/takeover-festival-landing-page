@@ -1,14 +1,15 @@
 import { Images } from 'lucide-react'
 import { Reveal } from './reveal'
 import { Carousel, type Slide } from './carousel'
+import { assetUrl } from './config'
 
 const slides: Slide[] = [
-  { src: '/images/prev-6.png', alt: 'Fireworks over the festival beach at night', caption: 'Fireworks Finale' },
-  { src: '/images/upcoming.png', alt: 'Aerial view of the beachfront festival', caption: 'Main Stage' },
-  { src: '/images/tourism-poropoint.jpg', alt: 'Poro Point cliffs and turquoise water', caption: 'Golden Shores' },
-  { src: '/images/prev-4.jpg', alt: 'Outdoor yoga session at sunrise', caption: 'Wellness Zone' },
-  { src: '/images/cause-trees.png', alt: 'Community mangrove planting along the coast', caption: 'Coastal Action' },
-  { src: '/images/artist-1.png', alt: 'Live band performing on stage', caption: 'Live Music' },
+  { src: assetUrl('/images/prev-6.png'), alt: 'Fireworks over the festival beach at night', caption: 'Fireworks Finale' },
+  { src: assetUrl('/images/upcoming.png'), alt: 'Aerial view of the beachfront festival', caption: 'Main Stage' },
+  { src: assetUrl('/images/tourism-poropoint.jpg'), alt: 'Poro Point cliffs and turquoise water', caption: 'Golden Shores' },
+  { src: assetUrl('/images/prev-4.jpg'), alt: 'Outdoor yoga session at sunrise', caption: 'Wellness Zone' },
+  { src: assetUrl('/images/cause-trees.png'), alt: 'Community mangrove planting along the coast', caption: 'Coastal Action' },
+  { src: assetUrl('/images/artist-1.png'), alt: 'Live band performing on stage', caption: 'Live Music' },
 ]
 
 export function PreviousEvents() {

@@ -2,7 +2,7 @@ import { useEffect, useState, type MouseEvent } from 'react'
 import { Image } from '@/components/ui/image'
 import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import { TICKETS_URL } from './config'
+import { TICKETS_URL, assetUrl } from './config'
 
 const navLinks = [
   { label: 'About', href: '#about' },
@@ -64,7 +64,7 @@ export function SiteHeader() {
           aria-label="Takeover Festival home"
         >
           <Image
-            src="/images/logo.png"
+            src={assetUrl('/images/logo.png')}
             alt="Takeover Festival logo"
             width={44}
             height={44}
