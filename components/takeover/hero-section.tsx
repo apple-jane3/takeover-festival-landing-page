@@ -78,7 +78,7 @@ export function HeroSection() {
       <a
         href="#about"
         aria-label="Scroll to learn more"
-        className="absolute bottom-24 left-1/2 z-20 -translate-x-1/2 text-white/80 transition-colors hover:text-teal sm:bottom-28"
+        className="absolute bottom-12 left-1/2 z-20 -translate-x-1/2 text-white/80 transition-colors hover:text-teal sm:bottom-28"
       >
         <ChevronDown className="h-8 w-8 animate-bounce" />
       </a>
