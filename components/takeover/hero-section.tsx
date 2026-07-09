@@ -2,31 +2,55 @@ import { Image } from '@/components/ui/image'
 import { ChevronDown } from 'lucide-react'
 import { FESTIVAL_DATE_RANGE, TICKETS_URL } from './config'
 
+function HeroWave() {
+  return (
+    <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-28 overflow-hidden sm:h-36">
+      <svg
+        viewBox="0 0 1440 120"
+        preserveAspectRatio="none"
+        className="absolute bottom-0 h-full w-[200%] animate-wave-drift text-background"
+        aria-hidden="true"
+      >
+        <path
+          fill="currentColor"
+          d="M0,64 C240,96 480,32 720,64 C960,96 1200,32 1440,64 L1440,120 L0,120 Z"
+        />
+        <path
+          fill="currentColor"
+          fillOpacity="0.5"
+          d="M0,80 C360,48 720,96 1080,72 C1260,60 1380,84 1440,80 L1440,120 L0,120 Z"
+        />
+      </svg>
+    </div>
+  )
+}
+
 export function HeroSection() {
   return (
-    <section id="top" className="relative flex min-h-screen items-center justify-center overflow-hidden">
-      <div className="absolute inset-0 bg-fixed">
+    <section id="top" className="relative flex min-h-[88vh] items-center justify-center overflow-hidden pb-16">
+      <div className="absolute inset-0 overflow-hidden">
         <Image
           src="/images/hero.jpg"
           alt="Tropical beach in La Union with palm trees and turquoise water"
           fill
           priority
           sizes="100vw"
-          className="object-cover"
+          className="animate-ken-burns object-cover"
         />
       </div>
+      <div className="absolute inset-0 bg-gradient-to-b from-black/25 via-transparent to-black/40" />
 
-      <div className="relative z-10 mx-auto flex max-w-4xl flex-col items-center px-4 text-center">
+      <div className="relative z-10 mx-auto flex max-w-4xl flex-col items-center px-4 pt-20 text-center">
         <Image
           src="/images/logo.png"
           alt="Takeover Festival logo"
           width={120}
           height={120}
           priority
-          className="mb-6 h-24 w-24 object-contain drop-shadow-lg sm:h-28 sm:w-28"
+          className="mb-5 h-20 w-20 object-contain drop-shadow-lg sm:h-24 sm:w-24"
         />
 
-        <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/40 bg-black/25 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.25em] text-white/90 backdrop-blur-sm">
+        <span className="mb-3 inline-flex items-center gap-2 rounded-full border border-white/40 bg-black/25 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.25em] text-white/90 backdrop-blur-sm">
           {FESTIVAL_DATE_RANGE}
         </span>
 
@@ -34,29 +58,18 @@ export function HeroSection() {
         <p className="font-display text-balance text-5xl leading-[0.92] tracking-tight text-white drop-shadow-[0_4px_18px_rgba(0,0,0,0.6)] sm:text-7xl lg:text-8xl">
           TAKEOVER
         </p>
-        <p className="mt-2 font-display text-xl uppercase tracking-[0.35em] text-white/90 drop-shadow-lg sm:text-2xl">
+        <p className="mt-2 font-display text-xl uppercase tracking-[0.35em] text-gold drop-shadow-lg sm:text-2xl">
           La Union
         </p>
-        <p className="mt-4 text-pretty text-lg font-medium tracking-wide text-white/80 drop-shadow sm:text-xl">
-          Beach Music Festival
-        </p>
-        <p className="mt-4 text-pretty text-base font-semibold uppercase tracking-[0.2em] text-white/70 drop-shadow sm:text-lg">
-          Party With a Purpose
+        <p className="mt-3 text-pretty text-lg font-medium tracking-wide text-white/90 drop-shadow sm:text-xl">
+          Beach Music Festival · Party With a Purpose
         </p>
 
-        <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row">
-          <a
-            href={TICKETS_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center rounded-full bg-white px-9 py-4 text-base font-bold text-black transition-all hover:scale-105 hover:bg-white/90"
-          >
+        <div className="mt-8 flex w-full max-w-md flex-col gap-4 sm:max-w-none sm:flex-row sm:justify-center">
+          <a href={TICKETS_URL} target="_blank" rel="noopener noreferrer" className="btn-cta-primary w-full sm:w-auto">
             Buy Tickets
           </a>
-          <a
-            href="#about"
-            className="inline-flex items-center justify-center rounded-full border border-white/50 px-9 py-4 text-base font-semibold text-white backdrop-blur-sm transition-colors hover:bg-white/10"
-          >
+          <a href="#about" className="btn-cta-secondary w-full sm:w-auto">
             Learn More
           </a>
         </div>
@@ -65,10 +78,12 @@ export function HeroSection() {
       <a
         href="#about"
         aria-label="Scroll to learn more"
-        className="absolute bottom-8 left-1/2 z-10 -translate-x-1/2 text-white/80 transition-colors hover:text-white"
+        className="absolute bottom-24 left-1/2 z-20 -translate-x-1/2 text-white/80 transition-colors hover:text-teal sm:bottom-28"
       >
         <ChevronDown className="h-8 w-8 animate-bounce" />
       </a>
+
+      <HeroWave />
     </section>
   )
 }

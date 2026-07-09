@@ -119,6 +119,53 @@
   transform: translateY(0);
 }
 
+@keyframes wave-drift {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes ken-burns {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.08);
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@utility animate-wave-drift {
+  animation: wave-drift 18s linear infinite;
+}
+
+@utility animate-ken-burns {
+  animation: ken-burns 24s ease-out forwards;
+}
+
+@utility animate-marquee {
+  animation: marquee 32s linear infinite;
+}
+
+@utility btn-cta-primary {
+  @apply inline-flex items-center justify-center rounded-full bg-teal px-10 py-4 text-base font-bold text-white shadow-[0_0_30px_rgba(20,179,198,0.55)] transition-all duration-300 hover:scale-105 hover:bg-teal/90 hover:shadow-[0_0_45px_rgba(20,179,198,0.75)];
+}
+
+@utility btn-cta-secondary {
+  @apply inline-flex items-center justify-center rounded-full border-2 border-white/60 bg-white/10 px-10 py-4 text-base font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:border-white hover:bg-white/20;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -127,5 +174,10 @@
     opacity: 1;
     transform: none;
     transition: none;
+  }
+  .animate-wave-drift,
+  .animate-ken-burns,
+  .animate-marquee {
+    animation: none;
   }
 }

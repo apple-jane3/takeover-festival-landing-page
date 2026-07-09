@@ -6,13 +6,13 @@ import { TICKETS_URL } from './config'
 
 const navLinks = [
   { label: 'About', href: '#about' },
-  { label: 'Past Events', href: '#past-events' },
+  { label: 'Gallery', href: '#gallery' },
   { label: 'Festival', href: '#festival' },
   { label: 'Tickets', href: '#tickets' },
   { label: 'Lineup', href: '#artists' },
-  { label: 'Causes', href: '#causes' },
-  { label: 'Travel', href: '#travel' },
-  { label: 'Sponsors', href: '#sponsors' },
+  { label: 'Schedule', href: '#schedule' },
+  { label: 'Location', href: '#location' },
+  { label: 'FAQ', href: '#faq' },
 ]
 
 export function SiteHeader() {

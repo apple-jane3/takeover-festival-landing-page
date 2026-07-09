@@ -66,17 +66,18 @@ export function CountdownSection() {
         <h2 className="mt-3 text-balance font-display text-4xl leading-tight text-white md:text-6xl">
           {FESTIVAL_DATE_RANGE}
         </h2>
-        <p className="mt-4 inline-flex items-center gap-2 text-pretty text-lg text-white/85">
-          <MapPin className="h-5 w-5 shrink-0 text-teal" aria-hidden="true" />
-          {FESTIVAL_LOCATION}
+        <p className="mt-4 inline-flex items-center justify-center gap-2 text-pretty text-lg text-white/90">
+          <MapPin className="h-5 w-5 shrink-0 text-sunset" aria-hidden="true" />
+          <span>
+            {FESTIVAL_LOCATION} · {FESTIVAL_CITY}
+          </span>
         </p>
-        <p className="mt-1 text-sm text-white/70">{FESTIVAL_CITY}</p>
 
         <div className="mx-auto mt-10 grid max-w-2xl grid-cols-4 gap-3 sm:gap-5">
           {units.map((unit) => (
             <div
               key={unit.label}
-              className="rounded-2xl border border-white/15 bg-white/10 py-5 backdrop-blur-md sm:py-7"
+              className="rounded-2xl border border-white/15 bg-white/10 py-5 backdrop-blur-md transition-transform hover:scale-105 sm:py-7"
             >
               <div className="font-display text-3xl text-white tabular-nums sm:text-5xl md:text-6xl">
                 {String(unit.value).padStart(2, '0')}
@@ -92,7 +93,7 @@ export function CountdownSection() {
           {highlights.map((item) => (
             <li
               key={item.label}
-              className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-4 py-2 text-sm font-medium text-white"
+              className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-4 py-2 text-sm font-medium text-white transition-colors hover:border-teal hover:bg-teal/20"
             >
               <item.icon className="h-4 w-4 text-teal" aria-hidden="true" />
               {item.label}
@@ -104,9 +105,9 @@ export function CountdownSection() {
           href={TICKETS_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-10 inline-flex items-center justify-center rounded-full bg-teal px-9 py-4 text-base font-bold text-white shadow-[0_0_30px_rgba(42,157,143,0.7)] transition-all hover:scale-105 hover:shadow-[0_0_45px_rgba(42,157,143,0.95)]"
+          className="btn-cta-primary mt-10"
         >
-          Secure Your Spot
+          Book Now
         </a>
       </div>
     </section>

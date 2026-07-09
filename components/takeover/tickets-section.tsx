@@ -21,7 +21,7 @@ const mainPasses = [
     name: 'Black Pearl',
     price: '₱2,650',
     icon: Star,
-    featured: true,
+    popular: true,
     description:
       'Front-row power. Premium viewing deck, private restrooms, priority merchandise lane, and 1 drink token.',
   },
@@ -49,7 +49,6 @@ const vipPasses = [
     price: '₱9,750',
     unit: '/ head',
     icon: Gem,
-    featured: true,
     description:
       'Elevated private pavilion, dedicated bottle service, gourmet platter, and VIP parking passes.',
   },
@@ -80,12 +79,17 @@ export function TicketsSection() {
             {mainPasses.map((pass) => (
               <article
                 key={pass.name}
-                className={`flex flex-col rounded-3xl border p-6 ${
-                  pass.featured
-                    ? 'border-gold/50 bg-gold/10 shadow-[0_0_40px_rgba(226,164,28,0.15)]'
+                className={`relative flex flex-col rounded-3xl border p-6 transition-transform hover:-translate-y-1 ${
+                  pass.popular
+                    ? 'border-sunset bg-sunset/10 shadow-[0_0_40px_rgba(238,125,51,0.2)]'
                     : 'border-white/10 bg-white/5'
                 }`}
               >
+                {pass.popular ? (
+                  <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-sunset px-4 py-1 text-xs font-bold uppercase tracking-wider text-white">
+                    Most Popular
+                  </span>
+                ) : null}
                 <pass.icon className="h-8 w-8 text-gold" aria-hidden="true" />
                 <h4 className="mt-4 font-display text-2xl text-white">{pass.name}</h4>
                 <p className="mt-2 font-display text-3xl text-sunset">{pass.price}</p>
@@ -96,7 +100,7 @@ export function TicketsSection() {
                   href={TICKETS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-6 inline-flex items-center justify-center rounded-full bg-teal px-5 py-3 text-sm font-semibold text-white transition-transform hover:scale-105"
+                  className="btn-cta-primary mt-6 w-full"
                 >
                   Buy Now
                 </a>
@@ -113,11 +117,7 @@ export function TicketsSection() {
             {vipPasses.map((pass) => (
               <article
                 key={pass.name}
-                className={`flex flex-col rounded-3xl border p-6 ${
-                  pass.featured
-                    ? 'border-gold/50 bg-gold/10 shadow-[0_0_40px_rgba(226,164,28,0.15)]'
-                    : 'border-white/10 bg-white/5'
-                }`}
+                className="flex flex-col rounded-3xl border border-white/10 bg-white/5 p-6 transition-transform hover:-translate-y-1"
               >
                 <pass.icon className="h-8 w-8 text-gold" aria-hidden="true" />
                 <h4 className="mt-4 font-display text-2xl text-white">{pass.name}</h4>
@@ -132,19 +132,13 @@ export function TicketsSection() {
                   href={TICKETS_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-6 inline-flex items-center justify-center rounded-full bg-gold px-5 py-3 text-sm font-semibold text-ocean-deep transition-transform hover:scale-105"
+                  className="mt-6 inline-flex w-full items-center justify-center rounded-full bg-gold px-6 py-4 text-base font-bold text-ocean-deep transition-all hover:scale-105 hover:bg-gold/90"
                 >
                   Book VIP
                 </a>
               </article>
             ))}
           </div>
-        </Reveal>
-
-        <Reveal delay={200}>
-          <p className="mt-10 text-center text-sm text-white/60">
-            Gold and Platinum Pavilion spaces are limited — first-come, first-served.
-          </p>
         </Reveal>
       </div>
     </section>

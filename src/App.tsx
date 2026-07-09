@@ -7,7 +7,12 @@ import { TicketsSection } from '@/components/takeover/tickets-section'
 import { ArtistsSection } from '@/components/takeover/artists-section'
 import { CausesSection } from '@/components/takeover/causes-section'
 import { TourismSection } from '@/components/takeover/tourism-section'
+import { LocationSection } from '@/components/takeover/location-section'
+import { ScheduleSection } from '@/components/takeover/schedule-section'
+import { VideoSection } from '@/components/takeover/video-section'
 import { SponsorsSection } from '@/components/takeover/sponsors-section'
+import { FaqSection } from '@/components/takeover/faq-section'
+import { ExperienceSection } from '@/components/takeover/experience-section'
 import { SiteFooter } from '@/components/takeover/site-footer'
 
 export default function App() {
@@ -23,7 +28,12 @@ export default function App() {
         <ArtistsSection />
         <CausesSection />
         <TourismSection />
+        <LocationSection />
+        <ScheduleSection />
+        <VideoSection />
         <SponsorsSection />
+        <FaqSection />
+        <ExperienceSection />
       </main>
       <SiteFooter />
     </>
