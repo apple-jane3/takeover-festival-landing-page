@@ -7,10 +7,12 @@ function HeroVideo({
   src,
   poster,
   onError,
+  preload = 'auto',
 }: {
   src: string
   poster: string
   onError: () => void
+  preload?: 'auto' | 'metadata' | 'none'
 }) {
   return (
     <video
@@ -18,7 +20,7 @@ function HeroVideo({
       loop
       muted
       playsInline
-      preload="auto"
+      preload={preload}
       poster={poster}
       className="absolute inset-0 h-full w-full scale-[1.06] object-cover object-center brightness-[1.06] blur-[2px] motion-reduce:scale-100 motion-reduce:blur-none"
       aria-hidden="true"
@@ -36,8 +38,8 @@ export function HeroSection() {
     <section id="top" className="relative flex min-h-screen items-center justify-center overflow-hidden">
       <div className="absolute inset-0 overflow-hidden bg-ocean-deep">
         {!videoFailed ? (
-          <div className="grid h-full w-full grid-cols-2">
-            <div className="relative overflow-hidden">
+          <div className="h-full w-full md:grid md:grid-cols-2">
+            <div className="relative h-full overflow-hidden">
               <HeroVideo
                 src={HERO_VIDEO_LEFT_SRC}
                 poster={HERO_POSTER_SRC}
@@ -46,10 +48,11 @@ export function HeroSection() {
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-black/35" />
             </div>
 
-            <div className="relative overflow-hidden border-l border-white/15">
+            <div className="relative hidden h-full overflow-hidden md:block md:border-l md:border-white/15">
               <HeroVideo
                 src={HERO_VIDEO_RIGHT_SRC}
                 poster={HERO_POSTER_SRC}
+                preload="metadata"
                 onError={() => setVideoFailed(true)}
               />
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-l from-black/20 via-transparent to-black/35" />
@@ -70,7 +73,7 @@ export function HeroSection() {
         <div className="pointer-events-none absolute inset-0 backdrop-blur-[5px] bg-white/[0.08]" />
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-ocean-deep/45 via-white/5 to-ocean-deep/55" />
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.12)_0%,transparent_45%,rgba(14,42,58,0.35)_100%)]" />
-        <div className="pointer-events-none absolute inset-y-0 left-1/2 w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-white/25 to-transparent" />
+        <div className="pointer-events-none absolute inset-y-0 left-1/2 hidden w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-white/25 to-transparent md:block" />
       </div>
 
       <div className="relative z-10 mx-auto flex max-w-4xl flex-col items-center justify-center px-4 pt-16 text-center">
