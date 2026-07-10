@@ -29,7 +29,11 @@ export const CONTACT_PHONE_HREF = 'tel:+639171234567'
 export const MAP_EMBED_URL =
   'https://maps.google.com/maps?q=Poro+Point+Freeport+Zone,+San+Fernando,+La+Union&t=&z=14&ie=UTF8&iwloc=&output=embed'
 
-export const HERO_IMAGE_SRC = assetUrl(`/images/hero.jpg`)
+export const heroVideo = (path: string) => assetUrl(`/videos/hero/${path}`)
+
+export const HERO_VIDEO_LEFT_SRC = heroVideo('left.mp4')
+export const HERO_VIDEO_RIGHT_SRC = heroVideo('right.mp4')
+export const HERO_POSTER_SRC = assetUrl('/images/hero-poster.jpg')
 
 export const PROMO_VIDEO_SRC = takeoverVideo('festival-promo.mp4')
 export const PROMO_VIDEO_POSTER = takeoverImage('gallery/nina-6409.jpg')
