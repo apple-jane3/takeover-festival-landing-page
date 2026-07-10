@@ -19,7 +19,6 @@ export default function ExpoDetailPage() {
         eyebrow="Tourism & Business Expo"
         title={expo.title}
         description={expo.shortBlurb}
-        backTo={{ label: 'All Expo Zones', href: '/expo' }}
       />
 
       <PageContent className="space-y-8 pt-6 md:space-y-10 md:pt-8">

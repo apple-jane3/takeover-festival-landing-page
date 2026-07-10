@@ -21,7 +21,6 @@ export default function CauseDetailPage() {
         eyebrow="Community Cause"
         title={cause.title}
         description={cause.shortBlurb}
-        backTo={{ label: 'All Causes', href: '/causes' }}
       />
 
       <PageContent className="space-y-8 pt-6 md:space-y-10 md:pt-8">

@@ -1,5 +1,3 @@
-import { Link } from 'react-router-dom'
-import { ChevronLeft } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import type { ReactNode } from 'react'
 import { MediaFigure } from './media-figure'
@@ -9,23 +7,13 @@ type PageHeaderProps = {
   eyebrow: string
   title: string
   description?: string
-  backTo?: { label: string; href: string }
   className?: string
 }
 
-export function PageHeader({ eyebrow, title, description, backTo, className }: PageHeaderProps) {
+export function PageHeader({ eyebrow, title, description, className }: PageHeaderProps) {
   return (
     <header className={cn('border-b border-white/10 bg-ocean-deep pt-20 pb-6 md:pb-7', className)}>
       <div className="mx-auto max-w-6xl px-4 md:px-8">
-        {backTo ? (
-          <Link
-            to={backTo.href}
-            className="mb-3 inline-flex items-center gap-1 text-xs font-medium text-white/70 transition-colors hover:text-teal"
-          >
-            <ChevronLeft className="h-3.5 w-3.5" aria-hidden="true" />
-            {backTo.label}
-          </Link>
-        ) : null}
         <span className="text-xs font-semibold uppercase tracking-[0.22em] text-teal">{eyebrow}</span>
         <h1 className="mt-1.5 text-balance font-display text-3xl leading-tight text-white md:text-4xl">
           {title}
