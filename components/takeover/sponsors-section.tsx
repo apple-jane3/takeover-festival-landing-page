@@ -16,10 +16,10 @@ function SponsorLogo({ name, logo }: { name: string; logo: string }) {
     <Image
       src={logo}
       alt={name}
-      width={140}
-      height={56}
+      width={168}
+      height={64}
       loading="lazy"
-      className="max-h-12 w-auto max-w-[160px] object-contain opacity-80 transition-opacity hover:opacity-100 sm:max-h-14"
+      className="max-h-14 w-auto max-w-[180px] object-contain opacity-80 transition-opacity hover:opacity-100 sm:max-h-16 sm:max-w-[200px]"
       onError={() => setFailed(true)}
     />
   )
@@ -36,7 +36,7 @@ export function SponsorMarquee() {
         {items.map((sponsor, i) => (
           <div
             key={`${sponsor.name}-${i}`}
-            className="flex h-16 min-w-[160px] items-center justify-center px-4 sm:h-20 sm:min-w-[180px]"
+            className="flex h-[4.5rem] min-w-[180px] items-center justify-center px-4 sm:h-20 sm:min-w-[200px]"
           >
             <SponsorLogo name={sponsor.name} logo={sponsor.logo} />
           </div>
