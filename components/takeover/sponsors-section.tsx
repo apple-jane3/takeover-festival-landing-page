@@ -3,7 +3,15 @@ import { Image } from '@/components/ui/image'
 import { Reveal } from './reveal'
 import { SPONSORS } from './config'
 
-function SponsorLogo({ name, logo }: { name: string; logo: string }) {
+function SponsorLogo({
+  name,
+  logo,
+  logoClassName,
+}: {
+  name: string
+  logo: string
+  logoClassName?: string
+}) {
   const [failed, setFailed] = useState(false)
 
   if (failed) {
@@ -19,7 +27,7 @@ function SponsorLogo({ name, logo }: { name: string; logo: string }) {
       width={140}
       height={56}
       loading="lazy"
-      className="max-h-12 w-auto max-w-[140px] object-contain opacity-80 transition-opacity hover:opacity-100 sm:max-h-14"
+      className={`max-h-12 w-auto max-w-[160px] object-contain opacity-80 transition-opacity hover:opacity-100 sm:max-h-14 ${logoClassName ?? ''}`}
       onError={() => setFailed(true)}
     />
   )
@@ -38,7 +46,11 @@ export function SponsorMarquee() {
             key={`${sponsor.name}-${i}`}
             className="flex h-16 min-w-[160px] items-center justify-center rounded-xl border border-border bg-card px-6 sm:h-20 sm:min-w-[180px]"
           >
-            <SponsorLogo name={sponsor.name} logo={sponsor.logo} />
+            <SponsorLogo
+              name={sponsor.name}
+              logo={sponsor.logo}
+              logoClassName={'logoClassName' in sponsor ? sponsor.logoClassName : undefined}
+            />
           </div>
         ))}
       </div>

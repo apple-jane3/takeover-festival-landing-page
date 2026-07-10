@@ -13,35 +13,58 @@ DST = Path(r"D:\nova\apple\takeover-festival-landing-page\public\videos\takeover
 
 FFMPEG = imageio_ffmpeg.get_ffmpeg_exe()
 
-VIDEO_EXPORTS: list[tuple[Path, str, float | None, bool]] = [
+VIDEO_EXPORTS: list[tuple[Path, str, float | None, bool, float, str | None]] = [
     (
-        SRC / "NINA (07-04)" / "MVI_6397.MOV",
-        "hero-loop.mp4",
-        12,
+        SRC / "SIAKOL & THE YOUTH (07-04)" / "THE YOUTH" / "MVI_7655.MOV",
+        "hero-day.mp4",
+        14,
         False,
+        12,
+        "eq=brightness=0.05:saturation=1.12:contrast=1.05",
+    ),
+    (
+        SRC / "PARAMORE NIGHT (06-27)" / "RANGEL" / "MVI_6180.MOV",
+        "hero-night.mp4",
+        14,
+        False,
+        5,
+        None,
     ),
     (
         SRC / "NINA (07-04)" / "MVI_6419.MOV",
         "festival-promo.mp4",
         45,
         True,
+        0,
+        None,
     ),
     (
         SRC / "MYMP (07-01)" / "PHOTOS AND VIDEOS" / "MVI_7586.MOV",
         "highlights/mymp.mp4",
         30,
         True,
+        0,
+        None,
     ),
     (
         SRC / "PARAMORE NIGHT (06-27)" / "FIONA" / "MVI_6195.MOV",
         "highlights/fiona.mp4",
         None,
         True,
+        0,
+        None,
     ),
 ]
 
 
-def export_video(src: Path, rel: str, max_seconds: float | None, with_audio: bool) -> None:
+def export_video(
+    src: Path,
+    rel: str,
+    max_seconds: float | None,
+    with_audio: bool,
+    start_seconds: float = 0,
+    color_filter: str | None = None,
+) -> None:
     if not src.exists():
         print(f"SKIP missing: {src}")
         return
@@ -49,19 +72,29 @@ def export_video(src: Path, rel: str, max_seconds: float | None, with_audio: boo
     out = DST / rel
     out.parent.mkdir(parents=True, exist_ok=True)
 
+    vf = "scale=1280:-2"
+    if color_filter:
+        vf = f"{vf},{color_filter}"
+
     cmd = [
         FFMPEG,
         "-y",
-        "-i",
-        str(src),
     ]
+    if start_seconds:
+        cmd.extend(["-ss", str(start_seconds)])
+    cmd.extend(
+        [
+            "-i",
+            str(src),
+        ]
+    )
     if max_seconds:
         cmd.extend(["-t", str(max_seconds)])
 
     cmd.extend(
         [
             "-vf",
-            "scale=1280:-2",
+            vf,
             "-c:v",
             "libx264",
             "-crf",
@@ -87,8 +120,8 @@ def export_video(src: Path, rel: str, max_seconds: float | None, with_audio: boo
 
 
 def main() -> None:
-    for src, rel, max_seconds, with_audio in VIDEO_EXPORTS:
-        export_video(src, rel, max_seconds, with_audio)
+    for src, rel, max_seconds, with_audio, start_seconds, color_filter in VIDEO_EXPORTS:
+        export_video(src, rel, max_seconds, with_audio, start_seconds, color_filter)
     print("Done.")
 
 

@@ -29,8 +29,7 @@ export const CONTACT_PHONE_HREF = 'tel:+639171234567'
 export const MAP_EMBED_URL =
   'https://maps.google.com/maps?q=Poro+Point+Freeport+Zone,+San+Fernando,+La+Union&t=&z=14&ie=UTF8&iwloc=&output=embed'
 
-export const HERO_VIDEO_SRC = takeoverVideo('hero-loop.mp4')
-export const HERO_VIDEO_POSTER = takeoverImage('hero.jpg')
+export const HERO_IMAGE_SRC = assetUrl(`/images/hero.jpg`)
 
 export const PROMO_VIDEO_SRC = takeoverVideo('festival-promo.mp4')
 export const PROMO_VIDEO_POSTER = takeoverImage('gallery/nina-6409.jpg')
@@ -132,7 +131,11 @@ export const FAQ_ITEMS = [
 
 export const SPONSORS = [
   { name: "Gold's Gym", logo: assetUrl('/images/sponsors/golds-gym.png') },
-  { name: 'HelixPay', logo: assetUrl('/images/sponsors/helixpay.png') },
+  {
+    name: 'HelixPay',
+    logo: assetUrl('/images/sponsors/helixpay.png'),
+    logoClassName: 'rounded-lg bg-[#121212] px-4 py-2',
+  },
   { name: 'DOT Region 1', logo: assetUrl('/images/dot-region.png') },
   { name: 'TakeOver Lounge', logo: LOGO_SRC },
 ] as const
