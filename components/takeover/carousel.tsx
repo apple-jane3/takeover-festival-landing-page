@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { Image } from '@/components/ui/image'
 import { cn } from '@/lib/utils'
 import { useCallback, useEffect, useRef, useState } from 'react'
@@ -7,6 +8,7 @@ export type Slide = {
   src: string
   alt: string
   caption?: string
+  href?: string
 }
 
 const SWIPE_THRESHOLD = 48
@@ -36,12 +38,49 @@ function useSlidesPerView() {
   return slidesPerView
 }
 
+function SlideContent({ slide, linkTo }: { slide: Slide; linkTo?: string }) {
+  const destination = slide.href ?? linkTo
+  const inner = (
+    <>
+      <Image
+        src={slide.src || '/placeholder.svg'}
+        alt={slide.alt}
+        fill
+        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+        className="object-cover transition-transform duration-700 group-hover:scale-110"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-ocean-deep/80 via-ocean-deep/10 to-transparent" />
+      {slide.caption ? (
+        <div className="absolute inset-x-0 bottom-0 p-4 sm:p-6 lg:p-8">
+          <p className="font-display text-lg uppercase tracking-wide text-gold drop-shadow sm:text-2xl lg:text-3xl">
+            {slide.caption}
+          </p>
+        </div>
+      ) : null}
+    </>
+  )
+
+  return (
+    <div className="group relative aspect-[4/3] overflow-hidden rounded-xl sm:aspect-[16/10] sm:rounded-2xl lg:aspect-[16/9]">
+      {destination ? (
+        <Link to={destination} className="absolute inset-0 block">
+          {inner}
+        </Link>
+      ) : (
+        inner
+      )}
+    </div>
+  )
+}
+
 export function Carousel({
   slides,
   autoPlayMs = 5000,
+  linkTo,
 }: {
   slides: Slide[]
   autoPlayMs?: number
+  linkTo?: string
 }) {
   const [index, setIndex] = useState(0)
   const [paused, setPaused] = useState(false)
@@ -140,24 +179,7 @@ export function Carousel({
               style={{ flexBasis: `${slideBasis}%` }}
               aria-hidden={i < index || i >= index + slidesPerView}
             >
-              <div className="relative aspect-[4/3] overflow-hidden rounded-xl sm:aspect-[16/10] sm:rounded-2xl lg:aspect-[16/9]">
-                <Image
-                  src={slide.src || '/placeholder.svg'}
-                  alt={slide.alt}
-                  fill
-                  priority={i < slidesPerView}
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-ocean-deep/80 via-ocean-deep/10 to-transparent" />
-                {slide.caption ? (
-                  <div className="absolute inset-x-0 bottom-0 p-4 sm:p-6 lg:p-8">
-                    <p className="font-display text-lg uppercase tracking-wide text-gold drop-shadow sm:text-2xl lg:text-3xl">
-                      {slide.caption}
-                    </p>
-                  </div>
-                ) : null}
-              </div>
+              <SlideContent slide={slide} linkTo={linkTo} />
             </div>
           ))}
         </div>
@@ -187,7 +209,7 @@ export function Carousel({
       ) : null}
 
       {dotCount > 1 ? (
-        <div className="mt-4 flex flex-wrap items-center justify-center gap-2 sm:mt-6 sm:gap-3">
+        <div className="mt-4 flex flex-wrap items-center justify-center gap-2 sm:mt-5 sm:gap-3">
           {Array.from({ length: dotCount }, (_, i) => (
             <button
               key={i}

@@ -81,7 +81,7 @@ export function SiteFooter() {
               <span className="font-display text-2xl tracking-wide">TAKEOVER</span>
             </div>
             <p className="mt-4 max-w-xs text-pretty text-sm leading-relaxed text-white/70">
-              Party With a Purpose. A 3-day beachfront celebration in La Union.
+              Party With a Purpose. A 5-day beachfront celebration in La Union.
             </p>
             <p className="mt-3 text-sm text-teal">{HASHTAGS.join(' · ')}</p>
           </div>

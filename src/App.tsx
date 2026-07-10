@@ -1,41 +1,30 @@
-import { SiteHeader } from '@/components/takeover/site-header'
-import { HeroSection } from '@/components/takeover/hero-section'
-import { AboutSection } from '@/components/takeover/about-section'
-import { PreviousEvents } from '@/components/takeover/previous-events'
-import { CountdownSection } from '@/components/takeover/countdown-section'
-import { TicketsSection } from '@/components/takeover/tickets-section'
-import { ArtistsSection } from '@/components/takeover/artists-section'
-import { CausesSection } from '@/components/takeover/causes-section'
-import { TourismSection } from '@/components/takeover/tourism-section'
-import { LocationSection } from '@/components/takeover/location-section'
-import { ScheduleSection } from '@/components/takeover/schedule-section'
-import { VideoSection } from '@/components/takeover/video-section'
-import { SponsorsSection } from '@/components/takeover/sponsors-section'
-import { FaqSection } from '@/components/takeover/faq-section'
-import { ExperienceSection } from '@/components/takeover/experience-section'
-import { SiteFooter } from '@/components/takeover/site-footer'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import HomePage from '@/src/pages/HomePage'
+import GalleryPage from '@/src/pages/GalleryPage'
+import TicketsPage from '@/src/pages/TicketsPage'
+import LocationPage from '@/src/pages/LocationPage'
+import FaqPage from '@/src/pages/FaqPage'
+import CausesIndexPage from '@/src/pages/CausesIndexPage'
+import CauseDetailPage from '@/src/pages/CauseDetailPage'
+import ExpoIndexPage from '@/src/pages/ExpoIndexPage'
+import ExpoDetailPage from '@/src/pages/ExpoDetailPage'
+
+const basename = import.meta.env.BASE_URL.replace(/\/$/, '') || '/'
 
 export default function App() {
   return (
-    <>
-      <SiteHeader />
-      <main>
-        <HeroSection />
-        <AboutSection />
-        <PreviousEvents />
-        <CountdownSection />
-        <TicketsSection />
-        <ArtistsSection />
-        <CausesSection />
-        <TourismSection />
-        <LocationSection />
-        <ScheduleSection />
-        <VideoSection />
-        <SponsorsSection />
-        <FaqSection />
-        <ExperienceSection />
-      </main>
-      <SiteFooter />
-    </>
+    <BrowserRouter basename={basename}>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/gallery" element={<GalleryPage />} />
+        <Route path="/tickets" element={<TicketsPage />} />
+        <Route path="/location" element={<LocationPage />} />
+        <Route path="/faq" element={<FaqPage />} />
+        <Route path="/causes" element={<CausesIndexPage />} />
+        <Route path="/causes/:slug" element={<CauseDetailPage />} />
+        <Route path="/expo" element={<ExpoIndexPage />} />
+        <Route path="/expo/:slug" element={<ExpoDetailPage />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
