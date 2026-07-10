@@ -1,5 +1,5 @@
 import { FormEvent, useState } from 'react'
-import { Image } from '@/components/ui/image'
+import { FestivalLogo } from './festival-logo'
 import { Mail, MapPin, Phone } from 'lucide-react'
 import {
   CONTACT_EMAIL,
@@ -10,7 +10,6 @@ import {
   NEWSLETTER_EMAIL,
   SITE_URL,
   SOCIAL_LINKS,
-  assetUrl,
 } from './config'
 
 function FacebookIcon({ className }: { className?: string }) {
@@ -70,16 +69,7 @@ export function SiteFooter() {
       <div className="mx-auto max-w-7xl px-4 py-16 md:px-8">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           <div>
-            <div className="flex items-center gap-3">
-              <Image
-                src={assetUrl('/images/logo.png')}
-                alt="Takeover Festival logo"
-                width={48}
-                height={48}
-                className="h-12 w-12 object-contain"
-              />
-              <span className="font-display text-2xl tracking-wide">TAKEOVER</span>
-            </div>
+            <FestivalLogo variant="footer" />
             <p className="mt-4 max-w-xs text-pretty text-sm leading-relaxed text-white/70">
               Party With a Purpose. A 5-day beachfront celebration in La Union.
             </p>

@@ -1,14 +1,14 @@
 import { Link } from 'react-router-dom'
 import { Image } from '@/components/ui/image'
 import { Reveal } from './reveal'
-import { TICKETS_ENABLED, assetUrl } from './config'
+import { TICKETS_ENABLED, takeoverImage } from './config'
 
 export function ExperienceSection() {
   return (
     <section id="promo" className="relative overflow-hidden py-16 md:py-24">
       <div className="absolute inset-0">
         <Image
-          src={assetUrl('/images/upcoming.png')}
+          src={takeoverImage('experience.jpg')}
           alt="Festival crowd at Poro Point at night"
           fill
           sizes="100vw"

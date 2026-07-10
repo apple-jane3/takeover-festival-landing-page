@@ -1,7 +1,7 @@
 import { Navigate, useParams } from 'react-router-dom'
-import { Image } from '@/components/ui/image'
 import { PageLayout } from '@/components/takeover/page-layout'
 import { ContentBlock, InfoList, MediaGrid, PageContent, PageHeader } from '@/components/takeover/page-shell'
+import { Photo } from '@/components/takeover/photo'
 import { Reveal } from '@/components/takeover/reveal'
 import { getExpoBySlug } from '@/components/takeover/config'
 
@@ -24,17 +24,14 @@ export default function ExpoDetailPage() {
 
       <PageContent className="space-y-8 pt-6 md:space-y-10 md:pt-8">
         <div className="grid items-start gap-6 lg:grid-cols-5">
-          <Reveal className="lg:col-span-2">
-            <div className="relative aspect-[4/3] overflow-hidden rounded-xl shadow-md lg:sticky lg:top-24">
-              <Image
-                src={expo.image}
-                alt={expo.title}
-                fill
-                sizes="(max-width: 1024px) 100vw, 40vw"
-                priority
-                className="object-cover"
-              />
-            </div>
+          <Reveal className="lg:col-span-2 lg:sticky lg:top-24">
+            <Photo
+              src={expo.image}
+              alt={expo.title}
+              priority
+              sizes="(max-width: 1024px) 100vw, 40vw"
+              frameClassName="rounded-xl shadow-md"
+            />
           </Reveal>
 
           <div className="space-y-6 lg:col-span-3">

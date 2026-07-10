@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { ChevronRight } from 'lucide-react'
-import { Image } from '@/components/ui/image'
+import { RowMediaImage } from './row-media-image'
 import { Reveal } from './reveal'
 import { COMMUNITY_CAUSES } from './config'
 
@@ -27,17 +27,12 @@ export function CausesSection() {
               className="group overflow-hidden rounded-2xl bg-white/5 shadow-lg transition-transform hover:-translate-y-1"
             >
               <Link to={`/causes/${cause.slug}`} className="block">
-                <div className="relative aspect-[16/10] overflow-hidden">
-                  <Image
-                    src={cause.image}
-                    alt={cause.title}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                    loading="lazy"
-                    className="object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-ocean-deep via-ocean-deep/30 to-transparent" />
-                </div>
+                <RowMediaImage
+                  src={cause.image}
+                  alt={cause.title}
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  loading="lazy"
+                />
                 <div className="p-5">
                   <h3 className="font-display text-xl text-white md:text-2xl">{cause.title}</h3>
                   <p className="mt-1.5 text-pretty text-sm leading-relaxed text-white/80">{cause.shortBlurb}</p>

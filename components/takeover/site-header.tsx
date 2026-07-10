@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { Image } from '@/components/ui/image'
 import { Menu, X } from 'lucide-react'
 import { cn } from '@/lib/utils'
-import { TICKETS_ENABLED, assetUrl } from './config'
+import { TICKETS_ENABLED } from './config'
+import { FestivalLogo } from './festival-logo'
 
 type NavLink = {
   label: string
@@ -47,24 +47,13 @@ export function SiteHeader() {
           : 'border-b border-white/15',
       )}
     >
-      <nav className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 md:px-8">
-        <Link to="/" className="flex items-center gap-3" aria-label="Takeover Festival home">
-          <Image
-            src={assetUrl('/images/logo.png')}
-            alt="Takeover Festival logo"
-            width={44}
-            height={44}
-            className="h-11 w-11 object-contain"
-            priority
-          />
-          <span
-            className={cn(
-              'font-display text-xl tracking-wide md:text-2xl',
-              scrolled ? 'text-white' : 'text-white drop-shadow-sm',
-            )}
-          >
-            TAKEOVER
-          </span>
+      <nav className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-2.5 md:px-8">
+        <Link
+          to="/"
+          className="flex items-center rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal/50"
+          aria-label="Takeover Festival home"
+        >
+          <FestivalLogo variant="header" priority />
         </Link>
 
         <div className="hidden items-center gap-5 lg:flex">

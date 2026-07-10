@@ -1,6 +1,6 @@
-import { Image } from '@/components/ui/image'
 import { PageLayout } from '@/components/takeover/page-layout'
 import { PageHeader, PageContent } from '@/components/takeover/page-shell'
+import { MediaFigure } from '@/components/takeover/media-figure'
 import { Reveal } from '@/components/takeover/reveal'
 import { GALLERY_ITEMS } from '@/components/takeover/config'
 
@@ -13,30 +13,18 @@ export default function GalleryPage() {
         description="Relive the energy, purpose, and coastal magic of past Takeover weekends."
       />
 
-      <PageContent>
-        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      <PageContent className="pt-6 md:pt-8">
+        <div className="columns-1 gap-4 sm:columns-2 lg:columns-3">
           {GALLERY_ITEMS.map((item, i) => (
-            <Reveal
-              key={item.caption}
-              delay={i * 40}
-              className="overflow-hidden rounded-xl border border-border bg-card"
-            >
-              <div className="relative aspect-[4/3] overflow-hidden">
-                <Image
-                  src={item.src}
-                  alt={item.alt}
-                  fill
-                  sizes="(max-width: 768px) 50vw, 25vw"
-                  loading="lazy"
-                  className="object-cover transition-transform duration-500 hover:scale-105"
-                />
-              </div>
-              <div className="p-3">
-                <h2 className="font-display text-base text-primary">{item.caption}</h2>
-                <p className="mt-1 line-clamp-2 text-xs leading-relaxed text-muted-foreground">
-                  {item.description}
-                </p>
-              </div>
+            <Reveal key={item.caption} delay={i * 40} className="mb-4 break-inside-avoid">
+              <MediaFigure
+                src={item.src}
+                alt={item.alt}
+                caption={item.caption}
+                description={item.description}
+                sizes="(max-width: 768px) 100vw, 33vw"
+                loading="lazy"
+              />
             </Reveal>
           ))}
         </div>

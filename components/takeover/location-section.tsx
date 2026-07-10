@@ -1,8 +1,8 @@
 import { Navigation } from 'lucide-react'
-import { Image } from '@/components/ui/image'
 import { ContentBlock, PageContent, PageHeader } from './page-shell'
+import { Photo } from './photo'
 import { Reveal } from './reveal'
-import { FESTIVAL_CITY, FESTIVAL_LOCATION, LOCATION_DETAILS, MAP_EMBED_URL, assetUrl } from './config'
+import { FESTIVAL_CITY, FESTIVAL_LOCATION, LOCATION_DETAILS, MAP_EMBED_URL, takeoverImage } from './config'
 
 export function LocationSection({ fullPage = false }: { fullPage?: boolean }) {
   if (fullPage) {
@@ -16,14 +16,13 @@ export function LocationSection({ fullPage = false }: { fullPage?: boolean }) {
 
         <PageContent className="space-y-6 pt-6 md:space-y-8 md:pt-8">
           <div className="grid gap-4 lg:grid-cols-2">
-            <Reveal className="relative aspect-[4/3] overflow-hidden rounded-xl shadow-md lg:aspect-auto lg:min-h-[300px]">
-              <Image
-                src={assetUrl('/images/tourism-poropoint.jpg')}
+            <Reveal>
+              <Photo
+                src={takeoverImage('venue.jpg')}
                 alt="Aerial view of Poro Point coastline"
-                fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 loading="lazy"
-                className="object-cover"
+                frameClassName="rounded-xl shadow-md"
               />
             </Reveal>
 

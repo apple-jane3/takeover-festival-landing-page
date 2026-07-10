@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { ChevronRight } from 'lucide-react'
-import { Image } from '@/components/ui/image'
+import { RowMediaImage } from './row-media-image'
 import { Reveal } from './reveal'
 import { EXPO_ITEMS } from './config'
 
@@ -18,27 +18,24 @@ export function TourismSection() {
           </p>
         </Reveal>
 
-        <div className="grid auto-rows-[200px] grid-cols-1 gap-4 sm:grid-cols-2 md:auto-rows-[220px] lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {EXPO_ITEMS.map((spot, i) => (
             <Reveal
               as="article"
               key={spot.slug}
               delay={i * 80}
-              className={`group relative overflow-hidden rounded-2xl shadow-lg ${spot.span}`}
+              className="group overflow-hidden rounded-2xl border border-border bg-card shadow-lg transition-transform hover:-translate-y-1"
             >
-              <Link to={`/expo/${spot.slug}`} className="absolute inset-0 block">
-                <Image
+              <Link to={`/expo/${spot.slug}`} className="block">
+                <RowMediaImage
                   src={spot.image}
                   alt={spot.title}
-                  fill
                   sizes="(max-width: 768px) 100vw, 50vw"
                   loading="lazy"
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-ocean-deep/80 to-transparent" />
-                <div className="absolute inset-x-0 bottom-0 p-4">
-                  <h3 className="font-display text-xl text-white sm:text-2xl">{spot.title}</h3>
-                  <p className="mt-1 line-clamp-2 text-sm text-white/85">{spot.shortBlurb}</p>
+                <div className="p-4">
+                  <h3 className="font-display text-xl text-primary sm:text-2xl">{spot.title}</h3>
+                  <p className="mt-1 line-clamp-2 text-sm text-muted-foreground">{spot.shortBlurb}</p>
                   <span className="mt-2 inline-flex items-center gap-1 text-xs font-semibold text-teal sm:text-sm">
                     View Details
                     <ChevronRight className="h-3.5 w-3.5" aria-hidden="true" />

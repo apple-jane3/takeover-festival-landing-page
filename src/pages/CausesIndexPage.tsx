@@ -23,7 +23,6 @@ export default function CausesIndexPage() {
               image={cause.image}
               imageAlt={cause.title}
               delay={i * 60}
-              variant="light"
             />
           ))}
         </div>

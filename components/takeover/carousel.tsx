@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
-import { Image } from '@/components/ui/image'
 import { cn } from '@/lib/utils'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { RowMediaImage } from './row-media-image'
 
 export type Slide = {
   src: string
@@ -38,39 +38,34 @@ function useSlidesPerView() {
   return slidesPerView
 }
 
-function SlideContent({ slide, linkTo }: { slide: Slide; linkTo?: string }) {
+function CarouselSlide({ slide, linkTo }: { slide: Slide; linkTo?: string }) {
   const destination = slide.href ?? linkTo
-  const inner = (
-    <>
-      <Image
-        src={slide.src || '/placeholder.svg'}
+  const card = (
+    <article className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
+      <RowMediaImage
+        src={slide.src}
         alt={slide.alt}
-        fill
         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-        className="object-cover transition-transform duration-700 group-hover:scale-110"
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-ocean-deep/80 via-ocean-deep/10 to-transparent" />
       {slide.caption ? (
-        <div className="absolute inset-x-0 bottom-0 p-4 sm:p-6 lg:p-8">
-          <p className="font-display text-lg uppercase tracking-wide text-gold drop-shadow sm:text-2xl lg:text-3xl">
+        <div className="border-t border-border px-4 py-3">
+          <p className="text-center font-display text-base uppercase tracking-wide text-primary">
             {slide.caption}
           </p>
         </div>
       ) : null}
-    </>
+    </article>
   )
 
-  return (
-    <div className="group relative aspect-[4/3] overflow-hidden rounded-xl sm:aspect-[16/10] sm:rounded-2xl lg:aspect-[16/9]">
-      {destination ? (
-        <Link to={destination} className="absolute inset-0 block">
-          {inner}
-        </Link>
-      ) : (
-        inner
-      )}
-    </div>
-  )
+  if (destination) {
+    return (
+      <Link to={destination} className="block">
+        {card}
+      </Link>
+    )
+  }
+
+  return card
 }
 
 export function Carousel({
@@ -157,7 +152,7 @@ export function Carousel({
     >
       <div
         ref={viewportRef}
-        className="touch-pan-y overflow-hidden rounded-2xl shadow-2xl ring-1 ring-black/5 sm:rounded-3xl"
+        className="overflow-hidden"
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
         onPointerUp={endDrag}
@@ -175,11 +170,11 @@ export function Carousel({
           {slides.map((slide, i) => (
             <div
               key={slide.src}
-              className="box-border shrink-0 px-1.5 sm:px-2"
+              className="box-border shrink-0 px-2"
               style={{ flexBasis: `${slideBasis}%` }}
               aria-hidden={i < index || i >= index + slidesPerView}
             >
-              <SlideContent slide={slide} linkTo={linkTo} />
+              <CarouselSlide slide={slide} linkTo={linkTo} />
             </div>
           ))}
         </div>
@@ -192,7 +187,7 @@ export function Carousel({
             onClick={prev}
             disabled={index === 0}
             aria-label="Previous slide"
-            className="absolute left-1 top-1/2 z-10 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-background/90 text-foreground shadow-lg backdrop-blur transition-colors hover:bg-gold hover:text-ocean-deep disabled:pointer-events-none disabled:opacity-40 sm:left-3 sm:h-11 sm:w-11 md:left-5"
+            className="absolute -left-1 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-card/95 text-primary shadow-lg backdrop-blur transition-colors hover:bg-gold hover:text-ocean-deep disabled:pointer-events-none disabled:opacity-40 sm:-left-3 sm:h-11 sm:w-11"
           >
             <ChevronLeft className="h-5 w-5 sm:h-6 sm:w-6" />
           </button>
@@ -201,7 +196,7 @@ export function Carousel({
             onClick={next}
             disabled={index >= maxIndex}
             aria-label="Next slide"
-            className="absolute right-1 top-1/2 z-10 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-background/90 text-foreground shadow-lg backdrop-blur transition-colors hover:bg-gold hover:text-ocean-deep disabled:pointer-events-none disabled:opacity-40 sm:right-3 sm:h-11 sm:w-11 md:right-5"
+            className="absolute -right-1 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-card/95 text-primary shadow-lg backdrop-blur transition-colors hover:bg-gold hover:text-ocean-deep disabled:pointer-events-none disabled:opacity-40 sm:-right-3 sm:h-11 sm:w-11"
           >
             <ChevronRight className="h-5 w-5 sm:h-6 sm:w-6" />
           </button>
@@ -209,7 +204,7 @@ export function Carousel({
       ) : null}
 
       {dotCount > 1 ? (
-        <div className="mt-4 flex flex-wrap items-center justify-center gap-2 sm:mt-5 sm:gap-3">
+        <div className="mt-5 flex flex-wrap items-center justify-center gap-2 sm:gap-2.5">
           {Array.from({ length: dotCount }, (_, i) => (
             <button
               key={i}
@@ -218,8 +213,8 @@ export function Carousel({
               aria-label={`Go to slide ${i + 1}`}
               aria-current={i === index}
               className={cn(
-                'h-2 rounded-full transition-all sm:h-2.5',
-                i === index ? 'w-6 bg-gold sm:w-8' : 'w-2 bg-foreground/25 hover:bg-foreground/50 sm:w-2.5',
+                'h-2 rounded-full transition-all',
+                i === index ? 'w-7 bg-sunset' : 'w-2 bg-primary/25 hover:bg-primary/45',
               )}
             />
           ))}
