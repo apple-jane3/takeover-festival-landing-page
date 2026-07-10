@@ -131,11 +131,7 @@ export const FAQ_ITEMS = [
 
 export const SPONSORS = [
   { name: "Gold's Gym", logo: assetUrl('/images/sponsors/golds-gym.png') },
-  {
-    name: 'HelixPay',
-    logo: assetUrl('/images/sponsors/helixpay.png'),
-    logoClassName: 'rounded-lg bg-[#121212] px-4 py-2',
-  },
+  { name: 'HelixPay', logo: assetUrl('/images/sponsors/helixpay.png') },
   { name: 'DOT Region 1', logo: assetUrl('/images/dot-region.png') },
   { name: 'TakeOver Lounge', logo: LOGO_SRC },
 ] as const
