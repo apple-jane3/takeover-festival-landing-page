@@ -6,6 +6,8 @@ export const LOGO_ALT = 'Takeover Festival La Union 2026'
 
 export const takeoverImage = (path: string) => assetUrl(`/images/takeover/${path}`)
 
+export const takeoverVideo = (path: string) => assetUrl(`/videos/takeover/${path}`)
+
 export const TICKETS_ENABLED = import.meta.env.VITE_TICKETS_ENABLED === 'true'
 
 export const TICKETS_URL = 'https://takeover.helixpay.ph/'
@@ -27,10 +29,32 @@ export const CONTACT_PHONE_HREF = 'tel:+639171234567'
 export const MAP_EMBED_URL =
   'https://maps.google.com/maps?q=Poro+Point+Freeport+Zone,+San+Fernando,+La+Union&t=&z=14&ie=UTF8&iwloc=&output=embed'
 
-export const HERO_VIDEO_SRC = assetUrl('/videos/hero-loop.mp4')
+export const HERO_VIDEO_SRC = takeoverVideo('hero-loop.mp4')
 export const HERO_VIDEO_POSTER = takeoverImage('hero.jpg')
 
-export const PROMO_VIDEO_EMBED = 'https://www.youtube.com/embed?listType=search&list=beach%20music%20festival'
+export const PROMO_VIDEO_SRC = takeoverVideo('festival-promo.mp4')
+export const PROMO_VIDEO_POSTER = takeoverImage('gallery/nina-6409.jpg')
+
+export const FESTIVAL_VIDEOS = [
+  {
+    title: 'Nina Live at Takeover',
+    caption: 'Nina · July 4',
+    src: takeoverVideo('festival-promo.mp4'),
+    poster: takeoverImage('gallery/nina-6409.jpg'),
+  },
+  {
+    title: 'MYMP at Takeover',
+    caption: 'MYMP · July 1',
+    src: takeoverVideo('highlights/mymp.mp4'),
+    poster: takeoverImage('artists/mymp.jpg'),
+  },
+  {
+    title: 'Fiona at Paramore Night',
+    caption: 'Paramore Night · June 27',
+    src: takeoverVideo('highlights/fiona.mp4'),
+    poster: takeoverImage('gallery/fiona-6221.jpg'),
+  },
+] as const
 
 export const SOCIAL_LINKS = {
   facebook: 'https://www.facebook.com/share/1D7HZ9znoM/',

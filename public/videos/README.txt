@@ -1,2 +1,8 @@
-Place hero-loop.mp4 here (5–10s looping cinematic beach/festival footage).
-The hero falls back to hero.jpg until this file is added.
+Place exported Takeover videos here.
+
+Run from the project root:
+
+  python scripts/import-takeover-videos.py
+
+Source files live in D:\nova\apple\TAKEOVER (MOV from past events).
+Exports web-ready MP4 files into this folder.
