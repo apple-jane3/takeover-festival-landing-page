@@ -22,7 +22,7 @@ function HeroVideo({
       playsInline
       preload={preload}
       poster={poster}
-      className="absolute inset-0 h-full w-full scale-[1.06] object-cover object-center brightness-[1.06] blur-[2px] motion-reduce:scale-100 motion-reduce:blur-none"
+      className="absolute inset-0 h-full w-full object-cover object-center"
       aria-hidden="true"
       onError={onError}
     >
@@ -65,12 +65,11 @@ export function HeroSection() {
             fill
             priority
             sizes="100vw"
-            className="object-cover object-center brightness-[1.06] blur-[2px] motion-reduce:blur-none"
+            className="object-cover object-center"
             aria-hidden="true"
           />
         )}
 
-        <div className="pointer-events-none absolute inset-0 backdrop-blur-[5px] bg-white/[0.08]" />
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-ocean-deep/45 via-white/5 to-ocean-deep/55" />
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.12)_0%,transparent_45%,rgba(14,42,58,0.35)_100%)]" />
         <div className="pointer-events-none absolute inset-y-0 left-1/2 hidden w-px -translate-x-1/2 bg-gradient-to-b from-transparent via-white/25 to-transparent md:block" />
