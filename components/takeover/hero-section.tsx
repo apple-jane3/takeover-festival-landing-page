@@ -1,12 +1,17 @@
 import { useState } from 'react'
 import {
-  HERO_DATE_LABEL,
   HERO_MARK_SRC,
   HERO_POSTER_SRC,
   HERO_SUN_DIVIDER_SRC,
+  HERO_VIDEO_PLAYBACK_RATE,
   HERO_VIDEO_SRC,
 } from './config'
 import { Image } from '@/components/ui/image'
+
+function applySlowPlayback(video: HTMLVideoElement | null) {
+  if (!video) return
+  video.playbackRate = HERO_VIDEO_PLAYBACK_RATE
+}
 
 export function HeroSection() {
   const [videoFailed, setVideoFailed] = useState(false)
@@ -24,6 +29,9 @@ export function HeroSection() {
             poster={HERO_POSTER_SRC}
             className="absolute inset-0 h-full w-full object-cover object-center"
             aria-hidden="true"
+            ref={applySlowPlayback}
+            onLoadedMetadata={(event) => applySlowPlayback(event.currentTarget)}
+            onPlay={(event) => applySlowPlayback(event.currentTarget)}
             onError={() => setVideoFailed(true)}
           >
             <source src={HERO_VIDEO_SRC} type="video/mp4" />

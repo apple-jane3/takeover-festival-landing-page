@@ -32,6 +32,7 @@ export const MAP_EMBED_URL =
 export const heroVideo = (path: string) => assetUrl(`/videos/hero/${path}`)
 
 export const HERO_VIDEO_SRC = heroVideo('hero.mp4')
+export const HERO_VIDEO_PLAYBACK_RATE = 0.5
 export const HERO_POSTER_SRC = assetUrl('/images/hero/poster.jpg')
 export const HERO_MARK_SRC = assetUrl('/images/hero/mark.png')
 export const HERO_SUN_DIVIDER_SRC = assetUrl('/images/hero/sun-divider.png')
