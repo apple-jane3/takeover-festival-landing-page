@@ -23,6 +23,13 @@ export function PreviousEvents() {
             <h2 className="mt-2 text-balance font-display text-4xl leading-tight text-primary md:text-5xl">
               Moments From Past Takeovers
             </h2>
+            <p className="mt-3 text-pretty text-sm text-muted-foreground">
+              Highlights from Boracay, La Union, and past Takeover weekends.{' '}
+              <Link to="/gallery" className="font-semibold text-teal underline-offset-4 hover:underline">
+                View the full gallery
+              </Link>{' '}
+              for more photos and festival moments.
+            </p>
           </div>
           <Link
             to="/gallery"

@@ -18,7 +18,7 @@ export function ArtistsSection() {
           </p>
         </Reveal>
 
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-5">
           {FEATURED_ARTISTS.map((artist, i) => (
             <Reveal
               as="article"
@@ -29,7 +29,7 @@ export function ArtistsSection() {
               <RowMediaImage
                 src={artist.src}
                 alt={`${artist.name} performing at Takeover`}
-                sizes="(max-width: 768px) 100vw, 25vw"
+                sizes="(max-width: 768px) 100vw, 20vw"
                 loading="lazy"
               />
               <div className="p-4">

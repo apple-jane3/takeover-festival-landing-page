@@ -168,9 +168,27 @@ export const FEATURED_ARTISTS = [
     date: 'Takeover · July 4',
     src: takeoverImage('artists/the-youth.jpg'),
   },
+  {
+    name: 'Mayonnaise',
+    genre: 'Alternative Rock',
+    date: 'Takeover · January 24',
+    src: takeoverImage('artists/mayonnaise.jpg'),
+  },
 ] as const
 
 export const GALLERY_ITEMS = [
+  {
+    src: takeoverImage('gallery/boracay-laboracay-2026.jpg'),
+    alt: 'Takeover Beach Music Festival crowd at White Beach, Boracay',
+    caption: 'Laboracay Takeover',
+    description: 'Takeover Beach Music Festival at White Beach, Station 1 — Boracay Labor Day weekend.',
+  },
+  {
+    src: takeoverImage('gallery/boracay-lineup-2026.jpg'),
+    alt: 'Takeover Beach Music Festival lineup poster at Boracay sunset',
+    caption: 'Boracay Beach Festival',
+    description: 'Sun-soaked sets and island energy at the Takeover Beach Music Festival in Boracay.',
+  },
   {
     src: takeoverImage('gallery/paramore-night-19.jpg'),
     alt: 'Paramore Night crowd at Takeover La Union',
@@ -188,12 +206,6 @@ export const GALLERY_ITEMS = [
     alt: 'Nina performing at Takeover',
     caption: 'Nina Live',
     description: 'Nina brought soulful pop and R&B to Takeover — July 4.',
-  },
-  {
-    src: takeoverImage('gallery/nina-6430.jpg'),
-    alt: 'Festival crowd during Nina set',
-    caption: 'Crowd Moments',
-    description: 'Thousands singing along on the La Union coast.',
   },
   {
     src: takeoverImage('gallery/paramore-night-28.jpg'),
@@ -226,12 +238,6 @@ export const GALLERY_ITEMS = [
     description: 'Fans capture unforgettable sets by the sea.',
   },
   {
-    src: takeoverImage('gallery/nina-6413.jpg'),
-    alt: 'Nina on stage with full band',
-    caption: 'Full Band Set',
-    description: 'Full production performances at Takeover La Union.',
-  },
-  {
     src: takeoverImage('gallery/paramore-night-03.jpg'),
     alt: 'Wide shot of Takeover festival grounds',
     caption: 'Festival Grounds',
@@ -250,7 +256,7 @@ export const COMMUNITY_CAUSES = [
     slug: 'beach-cleanup',
     title: 'Beach Cleanup',
     shortBlurb: 'Morning shoreline sessions with festival-goers and local partners.',
-    image: takeoverImage('crowd.jpg'),
+    image: assetUrl('/images/cause-cleanup.png'),
     icon: 'waves' as const,
     description:
       'Every Takeover Festival begins with purpose. Our beach cleanup program mobilizes volunteers across Poro Point and San Fernando\'s coastline. Partnering with local LGUs, environmental NGOs, and coastal communities, we remove plastic waste, restore dunes, and educate participants on sustainable coastal practices.',
@@ -259,11 +265,7 @@ export const COMMUNITY_CAUSES = [
       'Nov 27 · 8 AM — Main festival cleanup drive',
       'Nov 29 · 6 AM — Final coastal sweep before finale',
     ],
-    images: [
-      takeoverImage('crowd.jpg'),
-      takeoverImage('venue.jpg'),
-      takeoverImage('gallery/paramore-night-03.jpg'),
-    ],
+    images: [assetUrl('/images/cause-cleanup.png')],
   },
   {
     slug: 'tree-planting',

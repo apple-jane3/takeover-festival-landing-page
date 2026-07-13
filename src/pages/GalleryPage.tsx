@@ -10,13 +10,13 @@ export default function GalleryPage() {
       <PageHeader
         eyebrow="Activities & Events"
         title="Moments From Past Takeovers"
-        description="Relive the energy, purpose, and coastal magic of past Takeover weekends."
+        description="Relive the energy, purpose, and coastal magic of past Takeover weekends — from Boracay beach parties to La Union headline nights."
       />
 
       <PageContent className="pt-6 md:pt-8">
         <div className="columns-1 gap-4 sm:columns-2 lg:columns-3">
           {GALLERY_ITEMS.map((item, i) => (
-            <Reveal key={item.caption} delay={i * 40} className="mb-4 break-inside-avoid">
+            <Reveal key={item.src} delay={i * 40} className="mb-4 break-inside-avoid">
               <MediaFigure
                 src={item.src}
                 alt={item.alt}
