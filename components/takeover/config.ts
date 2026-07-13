@@ -178,12 +178,6 @@ export const FEATURED_ARTISTS = [
 
 export const GALLERY_ITEMS = [
   {
-    src: takeoverImage('gallery/boracay-laboracay-2026.jpg'),
-    alt: 'Takeover Beach Music Festival crowd at White Beach, Boracay',
-    caption: 'Laboracay Takeover',
-    description: 'Takeover Beach Music Festival at White Beach, Station 1 — Boracay Labor Day weekend.',
-  },
-  {
     src: takeoverImage('gallery/boracay-lineup-2026.jpg'),
     alt: 'Takeover Beach Music Festival lineup poster at Boracay sunset',
     caption: 'Boracay Beach Festival',
