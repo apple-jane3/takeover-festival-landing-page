@@ -55,9 +55,9 @@ export function HeroSection() {
           aria-hidden="true"
         />
 
-        <p className="mt-3 rounded-full bg-ocean/90 px-4 py-1.5 text-[10px] font-semibold tracking-[0.22em] text-white shadow-lg sm:mt-4 sm:px-5 sm:text-xs">
+        {/* <p className="mt-3 rounded-full bg-ocean/90 px-4 py-1.5 text-[10px] font-semibold tracking-[0.22em] text-white shadow-lg sm:mt-4 sm:px-5 sm:text-xs">
           {HERO_DATE_LABEL}
-        </p>
+        </p> */}
 
         <h1 className="mt-3 font-display text-[clamp(2.75rem,11vw,5.5rem)] leading-[0.92] tracking-[0.04em] text-white drop-shadow-[0_6px_24px_rgba(0,0,0,0.5)] sm:mt-4">
           TAKEOVER
