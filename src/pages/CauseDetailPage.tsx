@@ -60,6 +60,26 @@ export default function CauseDetailPage() {
             />
           </ContentBlock>
         </Reveal>
+
+        {'videos' in cause && cause.videos.length > 0 ? (
+          <Reveal delay={180}>
+            <ContentBlock title="Videos">
+              <div className="grid gap-4 sm:grid-cols-2">
+                {cause.videos.map((src) => (
+                  <video
+                    key={src}
+                    controls
+                    playsInline
+                    preload="metadata"
+                    className="aspect-video w-full rounded-xl bg-black object-cover object-center"
+                  >
+                    <source src={src} type="video/mp4" />
+                  </video>
+                ))}
+              </div>
+            </ContentBlock>
+          </Reveal>
+        ) : null}
       </PageContent>
     </PageLayout>
   )

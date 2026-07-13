@@ -8,6 +8,15 @@ export const takeoverImage = (path: string) => assetUrl(`/images/takeover/${path
 
 export const takeoverVideo = (path: string) => assetUrl(`/videos/takeover/${path}`)
 
+export const causeImage = (slug: string, file: string) => assetUrl(`/images/causes/${slug}/${file}`)
+
+export const causeVideo = (slug: string, file: string) => assetUrl(`/videos/causes/${slug}/${file}`)
+
+export const causeGallery = (slug: string, count: number, ext: 'jpg' | 'png' = 'jpg') =>
+  Array.from({ length: count }, (_, i) =>
+    causeImage(slug, `${String(i + 1).padStart(2, '0')}.${ext}`),
+  )
+
 export const TICKETS_ENABLED = import.meta.env.VITE_TICKETS_ENABLED === 'true'
 
 export const TICKETS_URL = 'https://takeover.helixpay.ph/'
@@ -250,7 +259,7 @@ export const COMMUNITY_CAUSES = [
     slug: 'beach-cleanup',
     title: 'Beach Cleanup',
     shortBlurb: 'Morning shoreline sessions with festival-goers and local partners.',
-    image: assetUrl('/images/cause-cleanup.png'),
+    image: causeImage('beach-cleanup', '01.png'),
     icon: 'waves' as const,
     description:
       'Every Takeover Festival begins with purpose. Our beach cleanup program mobilizes volunteers across Poro Point and San Fernando\'s coastline. Partnering with local LGUs, environmental NGOs, and coastal communities, we remove plastic waste, restore dunes, and educate participants on sustainable coastal practices.',
@@ -259,13 +268,14 @@ export const COMMUNITY_CAUSES = [
       'Nov 27 · 8 AM — Main festival cleanup drive',
       'Nov 29 · 6 AM — Final coastal sweep before finale',
     ],
-    images: [assetUrl('/images/cause-cleanup.png')],
+    images: causeGallery('beach-cleanup', 1, 'png'),
+    videos: [] as const,
   },
   {
     slug: 'tree-planting',
     title: 'Tree Planting',
     shortBlurb: 'Mangrove and native tree restoration in coastal buffer zones.',
-    image: assetUrl('/images/causes/tree-planting/01.jpg'),
+    image: causeImage('tree-planting', '01.jpg'),
     icon: 'sprout' as const,
     description:
       'Coastal buffer zones are critical to protecting La Union\'s shores from erosion and storm surge. Our tree planting initiative focuses on mangrove restoration and native species reforestation in partnership with DENR, local barangays, and environmental advocates. Festival attendees roll up their sleeves and plant trees that will protect the coast for generations.',
@@ -274,9 +284,8 @@ export const COMMUNITY_CAUSES = [
       'Nov 28 · 8 AM — Coastal buffer planting session',
       'Nov 29 · 9 AM — Grand planting finale with community partners',
     ],
-    images: Array.from({ length: 13 }, (_, i) =>
-      assetUrl(`/images/causes/tree-planting/${String(i + 1).padStart(2, '0')}.jpg`),
-    ),
+    images: causeGallery('tree-planting', 13),
+    videos: [] as const,
   },
   {
     slug: 'community-support',
@@ -296,6 +305,7 @@ export const COMMUNITY_CAUSES = [
       takeoverImage('gallery/nina-6413.jpg'),
       takeoverImage('crowd.jpg'),
     ],
+    videos: [] as const,
   },
 ] as const
 
@@ -350,19 +360,83 @@ export const EXPO_ITEMS = [
   },
   {
     slug: 'wellness-zone',
-    title: 'Wellness Zone',
+    title: "Gold's PH Wellness Zone",
     shortBlurb: 'Sunrise yoga, meditation, fitness sessions, and coastal wellness experiences.',
-    image: takeoverImage('wellness.jpg'),
+    image: takeoverImage('wellness-golds.png'),
     description:
-      'Balance the party with purpose. The Wellness Zone offers sunrise yoga on the beach, guided meditation, fitness sessions with Gold\'s Gym trainers, cold plunge dips, and holistic wellness workshops. A space to recharge body and mind between sets.',
+      "Balance the party with purpose. Gold's PH Wellness Zone offers sunrise yoga on the beach, guided meditation, fitness sessions with Gold's Gym trainers, cold plunge dips, and holistic wellness workshops. A space to recharge body and mind between sets.",
     highlights: [
       'Sunrise beach yoga and meditation',
-      'Gold\'s Gym fitness sessions',
+      "Gold's Gym fitness sessions",
       'Cold plunge and recovery area',
       'Holistic wellness workshops',
     ],
     schedule: ['Nov 26–29 · 6 AM – 11 AM daily'],
-    images: [takeoverImage('wellness.jpg'), takeoverImage('gallery/paramore-night-12.jpg')],
+    images: [takeoverImage('wellness-golds.png')],
+  },
+  {
+    slug: 'cca-culinary',
+    title: 'CCA Culinary',
+    shortBlurb: 'Live demos, chef showcases, and hands-on culinary experiences from CCA Manila.',
+    image: takeoverImage('food-park.jpg'),
+    description:
+      'CCA Culinary brings world-class culinary education to the coast. Watch live cooking demonstrations from CCA Manila chefs, sample signature dishes, and explore pop-up kitchens featuring La Union ingredients. A destination for food lovers who want more than a food truck lineup.',
+    highlights: [
+      'Live chef demonstrations and tastings',
+      'CCA Manila culinary pop-up kitchens',
+      'La Union farm-to-table showcases',
+      'Hands-on workshops for festival-goers',
+    ],
+    schedule: ['Nov 27–28 · 11 AM – 7 PM daily'],
+    images: [takeoverImage('food-park.jpg'), takeoverImage('gallery/paramore-night-01.jpg')],
+  },
+  {
+    slug: 'camping-village',
+    title: 'Camping Village',
+    shortBlurb: 'Beachfront camping, glamping tents, and overnight stays under the stars.',
+    image: takeoverImage('experience.jpg'),
+    description:
+      'Stay where the festival lives. Camping Village offers beachfront tent sites, premium glamping setups, and communal fire pits steps from the main stage. Wake up to sunrise over the West Philippine Sea and roll straight into the day\'s lineup.',
+    highlights: [
+      'Beachfront tent and glamping sites',
+      'Premium overnight packages available',
+      'Communal lounges and fire pit areas',
+      'Steps from main stage and food park',
+    ],
+    schedule: ['Nov 25–29 · Check-in from 2 PM daily'],
+    images: [takeoverImage('experience.jpg'), takeoverImage('venue.jpg')],
+  },
+  {
+    slug: 'culture-and-arts-zone',
+    title: 'Culture and Arts Zone',
+    shortBlurb: 'Local artisans, live performances, and Ilocano heritage on display.',
+    image: takeoverImage('community.jpg'),
+    description:
+      'Celebrate the soul of La Union. The Culture and Arts Zone spotlights Ilocano heritage through artisan markets, weaving and pottery demos, live folk performances, and contemporary art installations. A space where coastal culture meets festival energy.',
+    highlights: [
+      'Artisan markets and craft demonstrations',
+      'Live folk and contemporary performances',
+      'Ilocano heritage and storytelling sessions',
+      'Open-air gallery and mural walk',
+    ],
+    schedule: ['Nov 26–29 · 10 AM – 9 PM daily'],
+    images: [takeoverImage('community.jpg'), takeoverImage('gallery/paramore-night-19.jpg')],
+  },
+  {
+    slug: 'the-takeover-zone',
+    title: 'The Takeover Zone',
+    shortBlurb: 'Brand activations, merch drops, and the pulse of Takeover Festival.',
+    image: takeoverImage('crowd.jpg'),
+    description:
+      'The beating heart of the festival brand. The Takeover Zone hosts exclusive merch drops, partner activations, photo moments, and surprise pop-up performances. This is where the Takeover community gathers between sets.',
+    highlights: [
+      'Official Takeover merch and collectibles',
+      'Partner brand activations and lounges',
+      'Photo walls and immersive installations',
+      'Surprise pop-up sets and meet-and-greets',
+    ],
+    schedule: ['Nov 25–29 · 12 PM – 12 AM daily'],
+    images: [takeoverImage('crowd.jpg'), takeoverImage('gallery/paramore-night-28.jpg')],
   },
 ] as const
 

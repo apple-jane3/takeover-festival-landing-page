@@ -146,6 +146,29 @@
   animation: marquee 32s linear infinite;
 }
 
+@utility animate-expo-marquee {
+  animation: marquee 48s linear infinite;
+}
+
+@layer components {
+  .expo-marquee-card {
+    flex-shrink: 0;
+    width: 11.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .expo-marquee-card {
+      width: 14rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .expo-marquee-card {
+      width: calc((min(100vw, 80rem) - 2.25rem) / 4);
+    }
+  }
+}
+
 @utility btn-cta-primary {
   @apply inline-flex items-center justify-center rounded-full bg-teal px-10 py-4 text-base font-bold text-white shadow-[0_0_30px_rgba(20,179,198,0.55)] transition-all duration-300 hover:scale-105 hover:bg-teal/90 hover:shadow-[0_0_45px_rgba(20,179,198,0.75)];
 }
@@ -164,7 +187,8 @@
     transition: none;
   }
   .animate-ken-burns,
-  .animate-marquee {
+  .animate-marquee,
+  .animate-expo-marquee {
     animation: none;
   }
 }

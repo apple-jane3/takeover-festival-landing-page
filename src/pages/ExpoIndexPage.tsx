@@ -1,6 +1,7 @@
 import { PageLayout } from '@/components/takeover/page-layout'
 import { PageHeader, PageContent } from '@/components/takeover/page-shell'
-import { IntroCardLink } from '@/components/takeover/intro-card-link'
+import { ExpoZoneCard } from '@/components/takeover/expo-zone-card'
+import { Reveal } from '@/components/takeover/reveal'
 import { EXPO_ITEMS } from '@/components/takeover/config'
 
 export default function ExpoIndexPage() {
@@ -13,17 +14,16 @@ export default function ExpoIndexPage() {
       />
 
       <PageContent className="pt-6 md:pt-8">
-        <div className="grid gap-4 sm:grid-cols-2">
+        <div className="grid grid-cols-4 gap-2 sm:gap-3">
           {EXPO_ITEMS.map((item, i) => (
-            <IntroCardLink
-              key={item.slug}
-              to={`/expo/${item.slug}`}
-              title={item.title}
-              blurb={item.shortBlurb}
-              image={item.image}
-              imageAlt={item.title}
-              delay={i * 60}
-            />
+            <Reveal key={item.slug} delay={i * 50}>
+              <ExpoZoneCard
+                slug={item.slug}
+                title={item.title}
+                shortBlurb={item.shortBlurb}
+                image={item.image}
+              />
+            </Reveal>
           ))}
         </div>
       </PageContent>

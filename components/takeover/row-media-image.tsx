@@ -1,5 +1,5 @@
 import { Image } from '@/components/ui/image'
-import { MEDIA_SAND } from '@/lib/image-frame'
+import { MEDIA_SAND, mediaCover } from '@/lib/image-frame'
 import { cn } from '@/lib/utils'
 
 export const ROW_MEDIA_ASPECT = 'aspect-[4/5]'
@@ -30,7 +30,7 @@ export function RowMediaImage({
         sizes={sizes}
         loading={loading}
         priority={priority}
-        className="object-cover object-top"
+        className={mediaCover}
       />
     </div>
   )
