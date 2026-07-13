@@ -346,7 +346,7 @@ export const EXPO_ITEMS = [
     slug: 'food-park-heaven',
     title: 'Food Park Heaven',
     shortBlurb: '50+ food trucks, artisanal seafood stalls, and curated drink lounges.',
-    image: takeoverImage('food-park.jpg'),
+    image: takeoverImage('food-park-heaven.png'),
     description:
       'La Union is a culinary destination, and our Food Park Heaven brings the best of it to the festival. Over 50 vendors serve everything from fresh grilled seafood and local delicacies to international street food, craft cocktails, and specialty coffee — all with ocean views.',
     highlights: [
@@ -356,7 +356,7 @@ export const EXPO_ITEMS = [
       'Late-night bites through the finale',
     ],
     schedule: ['Nov 25–29 · 12 PM – 12 AM daily'],
-    images: [takeoverImage('food-park.jpg'), takeoverImage('gallery/paramore-night-01.jpg')],
+    images: [takeoverImage('food-park-heaven.png')],
   },
   {
     slug: 'wellness-zone',
