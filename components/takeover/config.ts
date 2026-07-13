@@ -31,9 +31,11 @@ export const MAP_EMBED_URL =
 
 export const heroVideo = (path: string) => assetUrl(`/videos/hero/${path}`)
 
-export const HERO_VIDEO_LEFT_SRC = heroVideo('left.mp4')
-export const HERO_VIDEO_RIGHT_SRC = heroVideo('right.mp4')
-export const HERO_POSTER_SRC = assetUrl('/images/hero-poster.jpg')
+export const HERO_VIDEO_SRC = heroVideo('hero.mp4')
+export const HERO_POSTER_SRC = assetUrl('/images/hero/poster.jpg')
+export const HERO_MARK_SRC = assetUrl('/images/hero/mark.png')
+export const HERO_SUN_DIVIDER_SRC = assetUrl('/images/hero/sun-divider.png')
+export const HERO_DATE_LABEL = 'NOVEMBER 25–29, 2026'
 
 export const PROMO_VIDEO_SRC = takeoverVideo('festival-promo.mp4')
 export const PROMO_VIDEO_POSTER = takeoverImage('gallery/nina-6409.jpg')
