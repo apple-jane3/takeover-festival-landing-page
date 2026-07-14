@@ -4,7 +4,7 @@ import { FESTIVAL_SCHEDULE } from './config'
 
 export function ScheduleSection() {
   return (
-    <section id="schedule" className="bg-secondary py-12 md:py-16">
+    <section id="schedule" className="bg-secondary pt-4 pb-12 md:pt-6 md:pb-16">
       <div className="mx-auto max-w-6xl px-4 md:px-8">
         <Reveal className="mb-6 text-center">
           <span className="text-sm font-semibold uppercase tracking-[0.25em] text-teal">Plan Your Weekend</span>

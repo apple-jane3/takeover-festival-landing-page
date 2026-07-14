@@ -29,7 +29,7 @@ function ExpoMarquee() {
 
 export function TourismSection() {
   return (
-    <section id="travel" className="bg-secondary py-12 md:py-16">
+    <section id="travel" className="bg-secondary pt-12 pb-4 md:pt-16 md:pb-6">
       <div className="mx-auto max-w-7xl px-4 md:px-8">
         <Reveal className="mb-6 max-w-2xl">
           <span className="text-sm font-semibold uppercase tracking-[0.25em] text-teal">Make A Trip Of It</span>
