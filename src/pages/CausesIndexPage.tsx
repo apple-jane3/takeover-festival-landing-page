@@ -9,7 +9,7 @@ export default function CausesIndexPage() {
       <PageHeader
         eyebrow="The Heart Of It"
         title="Community Causes"
-        description="Every beat has a purpose. Explore the initiatives that make Takeover a party with impact."
+        description="Every beat has a purpose. Party with impact on the environment we love."
       />
 
       <PageContent className="pt-6 md:pt-8">

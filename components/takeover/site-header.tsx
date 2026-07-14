@@ -15,8 +15,10 @@ const navLinks: NavLink[] = [
   { label: 'Home', href: '/' },
   { label: 'Gallery', href: '/gallery' },
   { label: 'Causes', href: '/causes', longLabel: 'Community Causes' },
-  { label: 'Expo', href: '/expo', longLabel: 'Tourism & Expo' },
+  { label: 'Expo', href: '/expo', longLabel: 'Tourism Expo' },
   { label: 'Location', href: '/location', longLabel: 'Event Location' },
+  { label: 'Media', href: '/media' },
+  { label: 'Partners', href: '/partners' },
   { label: 'FAQ', href: '/faq' },
   ...(TICKETS_ENABLED ? [{ label: 'Tickets', href: '/tickets' }] : []),
 ]
@@ -56,13 +58,13 @@ export function SiteHeader() {
           <FestivalLogo variant="header" priority />
         </Link>
 
-        <div className="hidden items-center gap-5 lg:flex">
+        <div className="hidden items-center gap-3 xl:flex">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               to={link.href}
               className={cn(
-                'text-sm font-medium transition-colors hover:text-teal',
+                'text-[13px] font-medium transition-colors hover:text-teal',
                 location.pathname === link.href ? 'text-teal' : scrolled ? 'text-white/85' : 'text-white/90 drop-shadow-sm',
               )}
             >
@@ -83,7 +85,7 @@ export function SiteHeader() {
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full text-white lg:hidden"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full text-white xl:hidden"
             aria-label={open ? 'Close menu' : 'Open menu'}
             aria-expanded={open}
           >
@@ -93,7 +95,7 @@ export function SiteHeader() {
       </nav>
 
       {open ? (
-        <div className="border-t border-white/15 px-4 pb-5 pt-2 backdrop-blur-md lg:hidden">
+        <div className="border-t border-white/15 px-4 pb-5 pt-2 backdrop-blur-md xl:hidden">
           <div className="flex flex-col">
             {navLinks.map((link) => (
               <Link

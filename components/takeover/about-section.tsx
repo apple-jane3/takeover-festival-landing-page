@@ -25,7 +25,7 @@ export function AboutSection() {
         <Reveal delay={120} className="flex flex-col">
           <span className="text-sm font-semibold uppercase tracking-[0.25em] text-teal">Who We Are</span>
           <h2 className="mt-2 text-balance font-display text-4xl leading-tight text-primary md:text-5xl">
-            More Than A Festival
+            More Than Just a Music Festival
           </h2>
           <p className="mt-3 text-pretty text-lg leading-relaxed text-foreground/80">
             Five days where music, tourism, business, sustainability, and community meet on the shores of La Union.

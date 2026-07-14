@@ -5,6 +5,7 @@ import { PreviousEvents } from '@/components/takeover/previous-events'
 import { CountdownSection } from '@/components/takeover/countdown-section'
 import { ArtistsSection } from '@/components/takeover/artists-section'
 import { CausesSection } from '@/components/takeover/causes-section'
+import { FestivalVillageSection } from '@/components/takeover/festival-village-section'
 import { TourismSection } from '@/components/takeover/tourism-section'
 import { ScheduleSection } from '@/components/takeover/schedule-section'
 import { ExperienceSection } from '@/components/takeover/experience-section'
@@ -23,6 +24,7 @@ export default function HomePage() {
         <CountdownSection />
         <ArtistsSection />
         <CausesSection />
+        <FestivalVillageSection />
         <TourismSection />
         <ScheduleSection />
         <ExperienceSection />

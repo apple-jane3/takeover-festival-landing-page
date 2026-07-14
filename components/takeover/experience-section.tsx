@@ -22,7 +22,7 @@ export function ExperienceSection() {
         <Reveal>
           <span className="text-sm font-semibold uppercase tracking-[0.25em] text-teal">Don&apos;t Miss It</span>
           <h2 className="mt-3 text-balance font-display text-3xl leading-tight text-white sm:text-4xl md:text-5xl lg:text-6xl">
-            The Biggest Music &amp; Tourism Festival in the Philippines
+            The Biggest <span className="text-gold">Festival</span> of Music and Tourism in the Philippines
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-pretty text-base text-white/80 sm:text-lg">
             Five days of world-class music, coastal culture, and purpose-driven celebration at Poro Point, La Union.

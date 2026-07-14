@@ -280,9 +280,9 @@ export const COMMUNITY_CAUSES = [
     description:
       'Coastal buffer zones are critical to protecting La Union\'s shores from erosion and storm surge. Our tree planting initiative focuses on mangrove restoration and native species reforestation in partnership with DENR, local barangays, and environmental advocates. Festival attendees roll up their sleeves and plant trees that will protect the coast for generations.',
     schedule: [
-      'Nov 26 · 9 AM — Mangrove nursery orientation',
-      'Nov 28 · 8 AM — Coastal buffer planting session',
-      'Nov 29 · 9 AM — Grand planting finale with community partners',
+      'Nov 29 · 8 AM — Mangrove nursery orientation',
+      'Nov 29 · 10 AM — Coastal buffer planting session',
+      'Nov 29 · 2 PM — Grand planting finale',
     ],
     images: causeGallery('tree-planting', 13),
     videos: [] as const,
@@ -306,6 +306,51 @@ export const COMMUNITY_CAUSES = [
       takeoverImage('crowd.jpg'),
     ],
     videos: [] as const,
+  },
+] as const
+
+export const FESTIVAL_VILLAGE_ZONES = [
+  {
+    slug: 'wellness-experience-zone',
+    title: 'Wellness Experience Zone',
+    shortBlurb: 'Sunrise yoga, fitness, and coastal wellness experiences.',
+    image: takeoverImage('wellness-golds.png'),
+  },
+  {
+    slug: 'activities-zone',
+    title: 'Activities Zone',
+    shortBlurb: 'Festival activities, games, and interactive experiences all day.',
+    image: takeoverImage('crowd.jpg'),
+  },
+  {
+    slug: 'food-zone',
+    title: 'Food Zone',
+    shortBlurb: 'Food trucks, artisan stalls, and curated drink lounges.',
+    image: takeoverImage('food-park-heaven.png'),
+  },
+  {
+    slug: 'camping-village',
+    title: 'Camping Village',
+    shortBlurb: 'Beachfront camping, glamping, and overnight stays under the stars.',
+    image: takeoverImage('experience.jpg'),
+  },
+  {
+    slug: 'tourism-expo',
+    title: 'Tourism Expo',
+    shortBlurb: 'Destinations, businesses, and culture from across Region 1.',
+    image: takeoverImage('expo-crowd.jpg'),
+  },
+  {
+    slug: 'community-causes',
+    title: 'Community Causes',
+    shortBlurb: 'Purpose-driven initiatives that protect the coast we love.',
+    image: takeoverImage('community.jpg'),
+  },
+  {
+    slug: 'takeover-festival-experience',
+    title: 'Takeover Festival Experience',
+    shortBlurb: 'The full Takeover journey — music, community, and coastal celebration.',
+    image: takeoverImage('venue.jpg'),
   },
 ] as const
 

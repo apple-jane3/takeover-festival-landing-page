@@ -89,8 +89,12 @@ export function HeroSection() {
           aria-hidden="true"
         />
 
-        <p className="mt-3 max-w-xl text-[11px] font-semibold tracking-[0.24em] text-white/95 drop-shadow-[0_2px_10px_rgba(0,0,0,0.55)] sm:mt-4 sm:text-xs">
-          BEACH MUSIC FESTIVAL · PARTY WITH A PURPOSE
+        <p className="mt-3 max-w-xl text-sm font-semibold tracking-[0.22em] text-white/95 drop-shadow-[0_2px_10px_rgba(0,0,0,0.55)] sm:mt-4 sm:text-base md:text-lg">
+          BEACH MUSIC FESTIVAL
+          <span className="mx-2 text-gold/90" aria-hidden="true">
+            ·
+          </span>
+          PARTY WITH A PURPOSE
         </p>
       </div>
     </section>

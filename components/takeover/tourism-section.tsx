@@ -37,7 +37,7 @@ export function TourismSection() {
             Tourism &amp; Business Expo
           </h2>
           <p className="mt-3 text-pretty text-base leading-relaxed text-foreground/70">
-            Explore expo zones, wellness experiences, and the best of La Union tourism.
+            Explore the Tourism Expo showcasing the best destinations, businesses, culture, and opportunities across Region 1.
           </p>
         </Reveal>
 

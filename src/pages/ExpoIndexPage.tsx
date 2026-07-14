@@ -10,7 +10,7 @@ export default function ExpoIndexPage() {
       <PageHeader
         eyebrow="Make A Trip Of It"
         title="Tourism & Business Expo"
-        description="Resorts, hotels, airlines, wellness, and local businesses in one coastal celebration."
+        description="Explore the Tourism Expo showcasing the best destinations, businesses, culture, and opportunities across Region 1."
       />
 
       <PageContent className="pt-6 md:pt-8">
