@@ -1,6 +1,7 @@
 import { PageLayout } from '@/components/takeover/page-layout'
 import { PageHeader, PageContent } from '@/components/takeover/page-shell'
 import { SponsorMarquee } from '@/components/takeover/sponsors-section'
+import { VenuePartnerSection } from '@/components/takeover/venue-partner-section'
 import { Reveal } from '@/components/takeover/reveal'
 import { SPONSOR_EMAIL } from '@/components/takeover/config'
 
@@ -12,6 +13,8 @@ export default function PartnersPage() {
         title="Partners"
         description="The brands, organizations, and collaborators powering Takeover Festival 2026."
       />
+
+      <VenuePartnerSection />
 
       <PageContent className="pt-6 md:pt-8">
         <Reveal delay={60}>

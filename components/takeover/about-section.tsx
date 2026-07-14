@@ -38,6 +38,7 @@ export function AboutSection() {
               { icon: '💼', label: 'Business', caption: 'B2B expo & local brands' },
               { icon: '🌿', label: 'Sustainability', caption: 'Coastal restoration & green action' },
               { icon: '❤️', label: 'Community', caption: 'Purpose-driven coastal impact' },
+              { icon: '🧘', label: 'Wellness Activities', caption: 'Sunrise yoga & coastal wellness' },
             ].map((pillar) => (
               <div
                 key={pillar.label}

@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { Image } from '@/components/ui/image'
 import { Reveal } from './reveal'
-import { SPONSORS } from './config'
+import { SPONSORS, VENUE_PARTNER } from './config'
 
 function SponsorLogo({ name, logo }: { name: string; logo: string }) {
   const [failed, setFailed] = useState(false)
@@ -57,7 +57,21 @@ export function SponsorsSection() {
           </h2>
         </Reveal>
 
-        <Reveal delay={60}>
+        <Reveal delay={60} className="mb-8 flex flex-col items-center text-center">
+          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-muted-foreground">
+            Venue Partner
+          </span>
+          <a
+            href={VENUE_PARTNER.website}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-3 flex h-20 items-center justify-center rounded-xl bg-card px-8 shadow-sm ring-1 ring-border transition-shadow hover:shadow-md sm:h-24 sm:px-10"
+          >
+            <SponsorLogo name={VENUE_PARTNER.shortName} logo={VENUE_PARTNER.logo} />
+          </a>
+        </Reveal>
+
+        <Reveal delay={80}>
           <SponsorMarquee />
         </Reveal>
 

@@ -10,6 +10,7 @@ import { TourismSection } from '@/components/takeover/tourism-section'
 import { ScheduleSection } from '@/components/takeover/schedule-section'
 import { ExperienceSection } from '@/components/takeover/experience-section'
 import { VideoSection } from '@/components/takeover/video-section'
+import { VenuePartnerSection } from '@/components/takeover/venue-partner-section'
 import { SponsorsSection } from '@/components/takeover/sponsors-section'
 import { SiteFooter } from '@/components/takeover/site-footer'
 
@@ -29,6 +30,7 @@ export default function HomePage() {
         <ScheduleSection />
         <ExperienceSection />
         <VideoSection />
+        <VenuePartnerSection />
         <SponsorsSection />
       </main>
       <SiteFooter />

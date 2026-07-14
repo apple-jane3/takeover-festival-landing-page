@@ -146,7 +146,41 @@ export const FAQ_ITEMS = [
   },
 ] as const
 
+export const VENUE_PARTNER = {
+  name: 'Poro Point Management Corporation',
+  shortName: 'PPMC',
+  logo: assetUrl('/images/sponsors/ppmc.png'),
+  website: 'https://poropointfreeport.gov.ph/',
+  description:
+    'Takeover Festival 2026 is held in partnership with Poro Point Management Corporation (PPMC), steward of the Poro Point Freeport Zone. A subsidiary of the Bases Conversion and Development Authority, PPMC manages one of Northern Luzon\'s premier coastal destinations — home to the Baywalk Arena, cliffside bay views, and the iconic lighthouse known as the Beacon of the North.',
+  highlights: [
+    'Poro Point Baywalk Arena — festival main stage',
+    '236-hectare coastal freeport zone in San Fernando, La Union',
+    'Northern Luzon\'s beacon for tourism, trade, and community events',
+  ],
+} as const
+
+export const VENUE_PARTNER_MEDIA = [
+  {
+    type: 'image' as const,
+    src: takeoverImage('venue.jpg'),
+    alt: 'Aerial view of Poro Point coastline and festival grounds',
+  },
+  {
+    type: 'image' as const,
+    src: takeoverImage('countdown.jpg'),
+    alt: 'Poro Point cliffside overlooking the bay',
+  },
+  {
+    type: 'video' as const,
+    src: takeoverVideo('hero-day.mp4'),
+    poster: takeoverImage('venue.jpg'),
+    alt: 'Daytime views of Poro Point Freeport Zone',
+  },
+] as const
+
 export const SPONSORS = [
+  { name: 'PPMC', logo: assetUrl('/images/sponsors/ppmc.png') },
   { name: "Gold's Gym", logo: assetUrl('/images/sponsors/golds-gym.png') },
   { name: 'HelixPay', logo: assetUrl('/images/sponsors/helixpay.png') },
   { name: 'DOT Region 1', logo: assetUrl('/images/dot-region.png') },
