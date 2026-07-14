@@ -30,6 +30,7 @@ export const FESTIVAL_CITY = 'Poro Point Freeport Zone, San Fernando, La Union'
 
 export const SITE_URL = 'https://takeoverfestival.com'
 export const CONTACT_EMAIL = 'VIP@takeoverfestival.com'
+export const PRESS_EMAIL = 'press@takeoverfestival.com'
 export const SPONSOR_EMAIL = 'sponsor@takeoverlu.ph'
 export const NEWSLETTER_EMAIL = 'newsletter@takeoverfestival.com'
 export const CONTACT_PHONE = '+63 917 123 4567'
@@ -505,6 +506,89 @@ export const LOCATION_DETAILS = {
     'Re-entry allowed with valid wristband and ID',
   ],
 } as const
+
+export const FEATURED_MEDIA_COVERAGE = [
+  {
+    outlet: 'The Philippine Star',
+    title: 'Takeover Festival Brings Five Days of Music and Tourism to La Union',
+    summary:
+      'Coverage of Takeover Festival 2026 — a beachfront celebration pairing live music, DOT tourism expo, and community causes along Poro Point.',
+    date: '2026',
+    image: takeoverImage('expo-crowd.jpg'),
+  },
+  {
+    outlet: 'The Manila Times',
+    title: 'La Union Coast Set for Takeover Festival Weekend',
+    summary:
+      'How Takeover Festival is positioning Poro Point as a premier destination for music, wellness, and Philippine tourism.',
+    date: '2026',
+    image: takeoverImage('venue.jpg'),
+  },
+  {
+    outlet: 'Philippine Tourism & Travel Magazine',
+    title: 'Takeover La Union: Where Festival Energy Meets Coastal Discovery',
+    summary:
+      'A feature on the festival village, tourism expo, and the five-day experience drawing travelers to San Fernando, La Union.',
+    date: '2026',
+    image: takeoverImage('experience.jpg'),
+  },
+] as const
+
+export const PRESS_RELEASES = [
+  {
+    outlet: 'Takeover Festival',
+    title: 'Takeover Festival 2026 Announces November Dates at Poro Point',
+    summary:
+      'Official announcement of the five-day festival running November 25–29, 2026 at Poro Point Baywalk Arena, San Fernando, La Union.',
+    date: 'Coming 2026',
+  },
+  {
+    outlet: 'Takeover Festival',
+    title: 'DOT Region 1 Partners with Takeover for Tourism Expo',
+    summary:
+      'Department of Tourism Region 1 joins Takeover Festival with a dedicated tourism exhibition showcasing destinations across Northern Luzon.',
+    date: 'Coming 2026',
+  },
+  {
+    outlet: 'Takeover Festival',
+    title: 'Community Causes Program Launches Ahead of Festival Weekend',
+    summary:
+      'Beach cleanup, tree planting, and coastal community support initiatives open to festival-goers and local volunteers.',
+    date: 'Coming 2026',
+  },
+] as const
+
+export const MEDIA_INTERVIEWS = [
+  {
+    outlet: 'Takeover Festival',
+    title: 'Festival Director on Building Takeover La Union',
+    summary:
+      'Behind the vision for a five-day festival that blends music, tourism, wellness, and purpose-driven community impact.',
+    date: 'Coming 2026',
+  },
+  {
+    outlet: 'Takeover Festival',
+    title: 'DOT Region 1 on Tourism Expo at Takeover',
+    summary:
+      'How the official tourism exhibition connects travelers with destinations, resorts, and experiences across Region 1.',
+    date: 'Coming 2026',
+  },
+  {
+    outlet: 'Takeover Festival',
+    title: 'Artists and Partners on the Takeover Experience',
+    summary:
+      'Conversations with performers, sponsors, and community partners shaping the Takeover Festival weekend.',
+    date: 'Coming 2026',
+  },
+] as const
+
+export const FUTURE_MEDIA_COVERAGE = [
+  'National broadsheet features and lifestyle sections',
+  'Broadcast and streaming coverage of headline performances',
+  'Travel and tourism trade media spotlights',
+  'Regional news and lifestyle program segments',
+  'International travel press and festival roundups',
+] as const
 
 export function getCauseBySlug(slug: string) {
   return COMMUNITY_CAUSES.find((c) => c.slug === slug)
