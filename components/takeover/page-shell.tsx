@@ -12,7 +12,12 @@ type PageHeaderProps = {
 
 export function PageHeader({ eyebrow, title, description, className }: PageHeaderProps) {
   return (
-    <header className={cn('border-b border-white/10 bg-ocean-deep pt-20 pb-6 md:pb-7', className)}>
+    <header
+      className={cn(
+        'border-b border-white/10 bg-ocean-deep pt-20 pb-6 md:pb-7 [@media(max-height:720px)]:pt-20 [@media(max-height:720px)]:pb-5',
+        className,
+      )}
+    >
       <div className="mx-auto max-w-6xl px-4 md:px-8">
         <span className="text-xs font-semibold uppercase tracking-[0.22em] text-teal">{eyebrow}</span>
         <h1 className="mt-1.5 text-balance font-display text-3xl leading-tight text-white md:text-4xl">

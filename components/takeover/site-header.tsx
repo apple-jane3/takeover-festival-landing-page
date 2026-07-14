@@ -95,7 +95,7 @@ export function SiteHeader() {
       </nav>
 
       {open ? (
-        <div className="border-t border-white/15 px-4 pb-5 pt-2 backdrop-blur-md xl:hidden">
+        <div className="max-h-[calc(100svh-3.5rem)] overflow-y-auto border-t border-white/15 px-4 pb-5 pt-2 backdrop-blur-md xl:hidden">
           <div className="flex flex-col">
             {navLinks.map((link) => (
               <Link
