@@ -179,12 +179,66 @@ export const VENUE_PARTNER_MEDIA = [
   },
 ] as const
 
-export const SPONSORS = [
-  { name: 'PPMC', logo: assetUrl('/images/sponsors/ppmc.png') },
-  { name: "Gold's Gym", logo: assetUrl('/images/sponsors/golds-gym.png') },
-  { name: 'HelixPay', logo: assetUrl('/images/sponsors/helixpay.png') },
-  { name: 'DOT Region 1', logo: assetUrl('/images/dot-region.png') },
-  { name: 'TakeOver Lounge', logo: LOGO_SRC },
+export type PartnerTier = 'title' | 'gold' | 'silver' | 'supporting'
+
+export type Partner = {
+  name: string
+  logo: string
+  tier: PartnerTier
+  website?: string
+}
+
+export const PARTNER_TIER_ORDER: PartnerTier[] = ['title', 'gold', 'silver', 'supporting']
+
+export const PARTNER_TIER_LABELS: Record<PartnerTier, string> = {
+  title: 'Title Partners',
+  gold: 'Gold Partners',
+  silver: 'Silver Partners',
+  supporting: 'Supporting Partners',
+}
+
+export const PARTNERS: readonly Partner[] = [
+  { name: "Gold's Gym", logo: assetUrl('/images/sponsors/golds-gym.png'), tier: 'gold' },
+  { name: 'HelixPay', logo: assetUrl('/images/sponsors/helixpay.png'), tier: 'gold' },
+  { name: 'DOT Region 1', logo: assetUrl('/images/dot-region.png'), tier: 'silver' },
+  { name: 'TakeOver Lounge', logo: assetUrl('/images/sponsors/takeover-lounge.png'), tier: 'supporting' },
+]
+
+export const CAROUSEL_PARTNERS: readonly Partner[] = [
+  {
+    name: VENUE_PARTNER.shortName,
+    logo: VENUE_PARTNER.logo,
+    tier: 'title',
+    website: VENUE_PARTNER.website,
+  },
+  ...PARTNERS,
+]
+
+export function getPartnersByTier(tier: PartnerTier) {
+  return PARTNERS.filter((partner) => partner.tier === tier)
+}
+
+export const PARTNER_BENEFITS = [
+  {
+    title: 'National Visibility',
+    description:
+      'Five days on Poro Point with 20,000+ capacity, DOT tourism expo, and coverage across music, travel, and lifestyle media.',
+  },
+  {
+    title: 'On-Site Activation',
+    description:
+      'Brand lounges, expo booths, wellness zones, and festival village placements across the Baywalk Arena grounds.',
+  },
+  {
+    title: 'Tourism & B2B Reach',
+    description:
+      'Connect with travelers, resort partners, and business delegates through the official DOT Region 1 tourism exhibition.',
+  },
+  {
+    title: 'Purpose-Driven Association',
+    description:
+      'Align with beach cleanup, tree planting, and coastal community programs that extend impact beyond the festival weekend.',
+  },
 ] as const
 
 export const FEATURED_ARTISTS = [

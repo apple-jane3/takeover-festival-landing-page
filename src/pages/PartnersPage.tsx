@@ -1,7 +1,9 @@
 import { PageLayout } from '@/components/takeover/page-layout'
 import { PageHeader, PageContent } from '@/components/takeover/page-shell'
-import { SponsorMarquee } from '@/components/takeover/sponsors-section'
-import { VenuePartnerSection } from '@/components/takeover/venue-partner-section'
+import {
+  PartnerPitchSection,
+  SponsorMarquee,
+} from '@/components/takeover/sponsors-section'
 import { Reveal } from '@/components/takeover/reveal'
 import { SPONSOR_EMAIL } from '@/components/takeover/config'
 
@@ -14,17 +16,27 @@ export default function PartnersPage() {
         description="The brands, organizations, and collaborators powering Takeover Festival 2026."
       />
 
-      <VenuePartnerSection />
+      <PageContent className="space-y-12 pt-8 md:space-y-16 md:pt-10">
+        <Reveal>
+          <div className="text-center">
+            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-teal">Our Partners</span>
+            <h2 className="mt-2 font-display text-3xl text-primary md:text-4xl">Sponsors &amp; Partners</h2>
+            <p className="mx-auto mt-4 max-w-2xl text-pretty text-sm leading-relaxed text-muted-foreground md:mt-5 md:text-base">
+              Brands and organizations joining Takeover Festival 2026 — from wellness and payments to tourism and community.
+            </p>
+          </div>
+        </Reveal>
 
-      <PageContent className="pt-6 md:pt-8">
-        <Reveal delay={60}>
+        <Reveal delay={60} className="my-4 md:my-6">
           <SponsorMarquee />
         </Reveal>
 
-        <Reveal delay={120} className="mt-10 rounded-2xl border border-border bg-card p-6 text-center md:p-8">
+        <PartnerPitchSection />
+
+        <Reveal delay={80} className="rounded-2xl border border-border bg-card p-6 text-center md:p-8">
           <h2 className="font-display text-2xl text-primary md:text-3xl">Partner With Us</h2>
           <p className="mx-auto mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground">
-            Interested in sponsoring or partnering with Takeover La Union 2026? Reach out to our team.
+            Reach out to explore title, gold, silver, and supporting sponsorship packages for Takeover La Union 2026.
           </p>
           <a
             href={`mailto:${SPONSOR_EMAIL}`}

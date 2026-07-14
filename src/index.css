@@ -167,6 +167,24 @@
       width: calc((min(100vw, 80rem) - 2.25rem) / 4);
     }
   }
+
+  .sponsor-marquee-slot {
+    flex-shrink: 0;
+    width: 9rem;
+    height: 5.5rem;
+    margin-inline: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media (min-width: 640px) {
+    .sponsor-marquee-slot {
+      width: 10.5rem;
+      height: 6rem;
+      margin-inline: 1rem;
+    }
+  }
 }
 
 @utility btn-cta-primary {
