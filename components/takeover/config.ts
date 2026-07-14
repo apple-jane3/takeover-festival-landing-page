@@ -201,7 +201,7 @@ export const PARTNERS: readonly Partner[] = [
   { name: "Gold's Gym", logo: assetUrl('/images/sponsors/golds-gym.png'), tier: 'gold' },
   { name: 'HelixPay', logo: assetUrl('/images/sponsors/helixpay.png'), tier: 'gold' },
   { name: 'DOT Region 1', logo: assetUrl('/images/dot-region.png'), tier: 'silver' },
-  { name: 'TakeOver Lounge', logo: assetUrl('/images/sponsors/takeover-lounge.png'), tier: 'supporting' },
+  { name: 'TakeOver Lounge', logo: LOGO_SRC, tier: 'supporting' },
 ]
 
 export const CAROUSEL_PARTNERS: readonly Partner[] = [
