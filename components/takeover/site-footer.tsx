@@ -71,7 +71,7 @@ export function SiteFooter() {
           <div>
             <FestivalLogo variant="footer" />
             <p className="mt-4 max-w-xs text-pretty text-sm leading-relaxed text-white/70">
-              Party With a Purpose. A 5-day beachfront celebration in La Union.
+              Party with a Cause. A 5-day beachfront celebration in La Union.
             </p>
             <p className="mt-3 text-sm text-teal">{HASHTAGS.join(' · ')}</p>
           </div>
@@ -148,7 +148,7 @@ export function SiteFooter() {
 
         <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-6 text-xs text-white/60 sm:flex-row">
           <p>&copy; {new Date().getFullYear()} Takeover Festival. All rights reserved.</p>
-          <p>Made with purpose in La Union.</p>
+          <p>Made for a cause in La Union.</p>
         </div>
       </div>
     </footer>

@@ -37,7 +37,7 @@ export function VideoSection() {
         <Reveal delay={120} className="mt-4 flex flex-wrap justify-center gap-2">
           {FESTIVAL_VIDEOS.map((video, index) => (
             <button
-              key={video.src}
+              key={video.title}
               type="button"
               onClick={() => setActiveIndex(index)}
               aria-current={index === activeIndex}

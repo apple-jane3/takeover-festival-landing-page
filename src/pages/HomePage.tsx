@@ -11,6 +11,7 @@ import { ScheduleSection } from '@/components/takeover/schedule-section'
 import { ExperienceSection } from '@/components/takeover/experience-section'
 import { VideoSection } from '@/components/takeover/video-section'
 import { VenuePartnerSection } from '@/components/takeover/venue-partner-section'
+import { HelixPaySection } from '@/components/takeover/helixpay-section'
 import { SponsorsSection } from '@/components/takeover/sponsors-section'
 import { SiteFooter } from '@/components/takeover/site-footer'
 
@@ -31,6 +32,7 @@ export default function HomePage() {
         <ExperienceSection />
         <VideoSection />
         <VenuePartnerSection />
+        <HelixPaySection />
         <SponsorsSection />
       </main>
       <SiteFooter />

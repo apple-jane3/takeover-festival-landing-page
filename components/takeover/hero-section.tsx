@@ -94,7 +94,7 @@ export function HeroSection() {
           <span className="mx-2 text-gold/90" aria-hidden="true">
             ·
           </span>
-          PARTY WITH A PURPOSE
+          PARTY WITH A CAUSE
         </p>
       </div>
     </section>

@@ -14,7 +14,8 @@ export function VenuePartnerSection() {
             Official Venue Partner
           </h2>
           <p className="mt-3 text-pretty text-base leading-relaxed text-foreground/70">
-            Takeover Festival is held in partnership with the stewards of Poro Point Freeport Zone.
+            Takeover Festival is held in partnership with Poro Point Management Corporation (PPMC) — official venue
+            partner and steward of Poro Point Freeport Zone.
           </p>
         </Reveal>
 

@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { PageLayout } from '@/components/takeover/page-layout'
 import { PageContent, PageHeader } from '@/components/takeover/page-shell'
 import { TicketsSection } from '@/components/takeover/tickets-section'
+import { HelixPaySection } from '@/components/takeover/helixpay-section'
 import { TICKETS_ENABLED } from '@/components/takeover/config'
 
 function TicketsUnavailable() {
@@ -34,6 +35,7 @@ export default function TicketsPage() {
         description="From essential weekend access to luxury beach pavilions."
       />
       <TicketsSection standalone />
+      <HelixPaySection variant="dark" className="bg-ocean-deep pb-12 pt-0 md:pb-16" />
     </PageLayout>
   )
 }

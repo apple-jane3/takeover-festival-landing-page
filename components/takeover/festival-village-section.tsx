@@ -1,6 +1,15 @@
-import { RowMediaImage } from './row-media-image'
 import { Reveal } from './reveal'
+import { Carousel, type Slide } from './carousel'
 import { FESTIVAL_VILLAGE_ZONES } from './config'
+
+const slides: Slide[] = FESTIVAL_VILLAGE_ZONES.map((zone) => ({
+  id: zone.slug,
+  src: zone.image,
+  alt: zone.title,
+  caption: zone.title,
+  description: zone.shortBlurb,
+  href: zone.href,
+}))
 
 export function FestivalVillageSection() {
   return (
@@ -12,34 +21,18 @@ export function FestivalVillageSection() {
             Welcome to the Takeover Festival Village
           </h2>
           <p className="mt-3 text-pretty text-base leading-relaxed text-foreground/70">
-            Step into an immersive festival village — music, wellness, food, tourism, camping, community causes, and
-            activities all in one coastal celebration.
+            Discover everything waiting for you inside Takeover Festival Village — a vibrant destination where music,
+            wellness, food, adventure, culture, tourism, and community come together in one unforgettable experience.
           </p>
         </Reveal>
 
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-7">
-          {FESTIVAL_VILLAGE_ZONES.map((zone, i) => (
-            <Reveal
-              as="article"
-              key={zone.slug}
-              delay={i * 60}
-              className="group overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition-transform hover:-translate-y-1 hover:shadow-md"
-            >
-              <RowMediaImage
-                src={zone.image}
-                alt={zone.title}
-                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 14vw"
-                loading="lazy"
-              />
-              <div className="p-3">
-                <h3 className="font-display text-sm leading-snug text-primary sm:text-base">{zone.title}</h3>
-                <p className="mt-1 line-clamp-3 text-[11px] leading-relaxed text-muted-foreground sm:text-xs">
-                  {zone.shortBlurb}
-                </p>
-              </div>
-            </Reveal>
-          ))}
-        </div>
+        <Reveal delay={80}>
+          <Carousel
+            slides={slides}
+            autoPlayMs={6000}
+            ariaLabel="Takeover Festival Village zones"
+          />
+        </Reveal>
       </div>
     </section>
   )

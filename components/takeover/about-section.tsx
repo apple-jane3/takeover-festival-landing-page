@@ -1,7 +1,7 @@
 import { Image } from '@/components/ui/image'
 import { MEDIA_SAND } from '@/lib/image-frame'
 import { Reveal } from './reveal'
-import { takeoverImage } from './config'
+import { meetingNotesImage } from './config'
 
 export function AboutSection() {
   return (
@@ -12,8 +12,8 @@ export function AboutSection() {
             className={`relative min-h-[22rem] overflow-hidden rounded-3xl sm:min-h-[26rem] md:min-h-full md:h-full ${MEDIA_SAND}`}
           >
             <Image
-              src={takeoverImage('about.jpg')}
-              alt="Nina performing at Takeover Festival"
+              src={meetingNotesImage('mayonnaise.png')}
+              alt="Mayonnaise performing at Takeover Festival"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
               loading="lazy"
@@ -35,10 +35,14 @@ export function AboutSection() {
             {[
               { icon: '🎵', label: 'Music', caption: 'World-class headliners on the beach' },
               { icon: '🌴', label: 'Tourism', caption: 'DOT expo & travel partners' },
+              {
+                icon: '🧘',
+                label: 'Wellness Activities & Events',
+                caption: 'Yoga, meditation, recovery & fitness',
+              },
               { icon: '💼', label: 'Business', caption: 'B2B expo & local brands' },
               { icon: '🌿', label: 'Sustainability', caption: 'Coastal restoration & green action' },
-              { icon: '❤️', label: 'Community', caption: 'Purpose-driven coastal impact' },
-              { icon: '🧘', label: 'Wellness Activities', caption: 'Sunrise yoga & coastal wellness' },
+              { icon: '❤️', label: 'Community', caption: 'Cause-driven coastal impact' },
             ].map((pillar) => (
               <div
                 key={pillar.label}
@@ -55,7 +59,7 @@ export function AboutSection() {
             {[
               { value: '5', label: 'Days' },
               { value: '20K', label: 'Capacity' },
-              { value: '100%', label: 'Purpose' },
+              { value: '100%', label: 'Cause' },
             ].map((stat) => (
               <div key={stat.label} className="rounded-2xl bg-secondary p-2.5 text-center">
                 <dt className="font-display text-2xl text-primary sm:text-3xl">{stat.value}</dt>

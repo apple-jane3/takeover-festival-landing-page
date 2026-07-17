@@ -5,9 +5,11 @@ import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { RowMediaImage } from './row-media-image'
 
 export type Slide = {
+  id?: string
   src: string
   alt: string
   caption?: string
+  description?: string
   href?: string
 }
 
@@ -19,9 +21,11 @@ function useSlidesPerView() {
   useEffect(() => {
     const sm = window.matchMedia('(min-width: 640px)')
     const lg = window.matchMedia('(min-width: 1024px)')
+    const xl = window.matchMedia('(min-width: 1280px)')
 
     const update = () => {
-      if (lg.matches) setSlidesPerView(3)
+      if (xl.matches) setSlidesPerView(4)
+      else if (lg.matches) setSlidesPerView(3)
       else if (sm.matches) setSlidesPerView(2)
       else setSlidesPerView(1)
     }
@@ -29,9 +33,11 @@ function useSlidesPerView() {
     update()
     sm.addEventListener('change', update)
     lg.addEventListener('change', update)
+    xl.addEventListener('change', update)
     return () => {
       sm.removeEventListener('change', update)
       lg.removeEventListener('change', update)
+      xl.removeEventListener('change', update)
     }
   }, [])
 
@@ -41,13 +47,29 @@ function useSlidesPerView() {
 function CarouselSlide({ slide, linkTo }: { slide: Slide; linkTo?: string }) {
   const destination = slide.href ?? linkTo
   const card = (
-    <article className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
+    <article className="group overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition-transform hover:-translate-y-1 hover:shadow-md">
       <RowMediaImage
         src={slide.src}
         alt={slide.alt}
-        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+        loading="lazy"
       />
-      {slide.caption ? (
+      {slide.description ? (
+        <div className="p-3 sm:p-4">
+          {slide.caption ? (
+            <h3 className="font-display text-sm leading-snug text-primary sm:text-base">{slide.caption}</h3>
+          ) : null}
+          <p className="mt-1 line-clamp-3 text-[11px] leading-relaxed text-muted-foreground sm:text-xs">
+            {slide.description}
+          </p>
+          {destination ? (
+            <span className="mt-2 inline-flex items-center gap-0.5 text-[10px] font-semibold text-teal sm:text-xs">
+              Explore
+              <ChevronRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
+            </span>
+          ) : null}
+        </div>
+      ) : slide.caption ? (
         <div className="border-t border-border px-4 py-3">
           <p className="text-center font-display text-base uppercase tracking-wide text-primary">
             {slide.caption}
@@ -72,10 +94,12 @@ export function Carousel({
   slides,
   autoPlayMs = 5000,
   linkTo,
+  ariaLabel = 'Carousel',
 }: {
   slides: Slide[]
   autoPlayMs?: number
   linkTo?: string
+  ariaLabel?: string
 }) {
   const [index, setIndex] = useState(0)
   const [paused, setPaused] = useState(false)
@@ -148,7 +172,7 @@ export function Carousel({
       onMouseLeave={() => setPaused(false)}
       role="region"
       aria-roledescription="carousel"
-      aria-label="Past festival highlights"
+      aria-label={ariaLabel}
     >
       <div
         ref={viewportRef}
@@ -169,8 +193,8 @@ export function Carousel({
         >
           {slides.map((slide, i) => (
             <div
-              key={slide.src}
-              className="box-border shrink-0 px-2"
+              key={slide.id ?? slide.src}
+              className="box-border shrink-0 px-1.5 sm:px-2"
               style={{ flexBasis: `${slideBasis}%` }}
               aria-hidden={i < index || i >= index + slidesPerView}
             >

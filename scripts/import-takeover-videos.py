@@ -9,6 +9,7 @@ except ImportError as exc:
     raise SystemExit("Install imageio-ffmpeg: pip install imageio-ffmpeg") from exc
 
 SRC = Path(r"D:\nova\apple\TAKEOVER")
+CLIENT_ASSETS = Path(r"D:\nova\apple\takeover-festival-landing-page\client-assets")
 DST = Path(r"D:\nova\apple\takeover-festival-landing-page\public\videos\takeover")
 
 FFMPEG = imageio_ffmpeg.get_ffmpeg_exe()
@@ -31,9 +32,10 @@ VIDEO_EXPORTS: list[tuple[Path, str, float | None, bool, float, str | None]] = [
         None,
     ),
     (
-        SRC / "NINA (07-04)" / "MVI_6419.MOV",
-        "festival-promo.mp4",
-        45,
+        CLIENT_ASSETS
+        / "Mayonnaise - Bakit Part 2 (Live at TakeOver Lounge) - Yellow Room Music Philippines (720p, h264).mp4",
+        "highlights/mayonnaise.mp4",
+        None,
         True,
         0,
         None,

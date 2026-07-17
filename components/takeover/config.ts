@@ -1,10 +1,12 @@
 export const assetUrl = (path: string) =>
   `${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`
 
-export const LOGO_SRC = assetUrl('/images/logo.png')
+export const LOGO_SRC = assetUrl('/images/hero/mark.png')
 export const LOGO_ALT = 'Takeover Festival La Union 2026'
 
 export const takeoverImage = (path: string) => assetUrl(`/images/takeover/${path}`)
+
+export const meetingNotesImage = (file: string) => assetUrl(`/images/meeting-notes/${file}`)
 
 export const takeoverVideo = (path: string) => assetUrl(`/videos/takeover/${path}`)
 
@@ -29,12 +31,12 @@ export const FESTIVAL_LOCATION = 'Poro Point Baywalk Arena'
 export const FESTIVAL_CITY = 'Poro Point Freeport Zone, San Fernando, La Union'
 
 export const SITE_URL = 'https://takeoverfestival.com'
-export const CONTACT_EMAIL = 'VIP@takeoverfestival.com'
+export const CONTACT_EMAIL = 'Steve1.takeoverfestival@gmail.com'
 export const PRESS_EMAIL = 'press@takeoverfestival.com'
 export const SPONSOR_EMAIL = 'sponsor@takeoverlu.ph'
 export const NEWSLETTER_EMAIL = 'newsletter@takeoverfestival.com'
-export const CONTACT_PHONE = '+63 917 123 4567'
-export const CONTACT_PHONE_HREF = 'tel:+639171234567'
+export const CONTACT_PHONE = '+63 969 520 9950'
+export const CONTACT_PHONE_HREF = 'tel:+639695209950'
 
 export const MAP_EMBED_URL =
   'https://maps.google.com/maps?q=Poro+Point+Freeport+Zone,+San+Fernando,+La+Union&t=&z=14&ie=UTF8&iwloc=&output=embed'
@@ -48,15 +50,15 @@ export const HERO_MARK_SRC = assetUrl('/images/hero/mark.png')
 export const HERO_SUN_DIVIDER_SRC = assetUrl('/images/hero/sun-divider.png')
 export const HERO_DATE_LABEL = 'NOVEMBER 25–29, 2026'
 
-export const PROMO_VIDEO_SRC = takeoverVideo('festival-promo.mp4')
-export const PROMO_VIDEO_POSTER = takeoverImage('gallery/nina-6409.jpg')
+export const PROMO_VIDEO_SRC = takeoverVideo('highlights/mayonnaise.mp4')
+export const PROMO_VIDEO_POSTER = meetingNotesImage('mayonnaise.png')
 
 export const FESTIVAL_VIDEOS = [
   {
-    title: 'Nina Live at Takeover',
-    caption: 'Nina · July 4',
-    src: takeoverVideo('festival-promo.mp4'),
-    poster: takeoverImage('gallery/nina-6409.jpg'),
+    title: 'Mayonnaise — Bakit Part 2',
+    caption: 'Mayonnaise · Live at TakeOver Lounge',
+    src: takeoverVideo('highlights/mayonnaise.mp4'),
+    poster: meetingNotesImage('mayonnaise.png'),
   },
   {
     title: 'MYMP at Takeover',
@@ -249,28 +251,28 @@ export const FEATURED_ARTISTS = [
     src: takeoverImage('artists/mymp.jpg'),
   },
   {
-    name: 'Nina',
-    genre: 'Pop & R&B',
-    date: 'Takeover · July 4',
-    src: takeoverImage('artists/nina.jpg'),
+    name: 'Apl.de.Ap',
+    genre: 'Hip-Hop',
+    date: 'Takeover · 2026',
+    src: meetingNotesImage('apl-de-ap.png'),
+  },
+  {
+    name: 'Gloc-9',
+    genre: 'Hip-Hop',
+    date: 'Takeover · 2026',
+    src: meetingNotesImage('gloc-9.png'),
+  },
+  {
+    name: 'Mayonnaise',
+    genre: 'Alternative Rock',
+    date: 'Takeover · January 24',
+    src: meetingNotesImage('mayonnaise.png'),
   },
   {
     name: 'Siakol',
     genre: 'Rock',
     date: 'Takeover · July 4',
     src: takeoverImage('artists/siakol.jpg'),
-  },
-  {
-    name: 'The Youth',
-    genre: 'Rock',
-    date: 'Takeover · July 4',
-    src: takeoverImage('artists/the-youth.jpg'),
-  },
-  {
-    name: 'Mayonnaise',
-    genre: 'Alternative Rock',
-    date: 'Takeover · January 24',
-    src: takeoverImage('artists/mayonnaise.jpg'),
   },
 ] as const
 
@@ -294,10 +296,40 @@ export const GALLERY_ITEMS = [
     description: 'Headline nights light up the Takeover main stage.',
   },
   {
-    src: takeoverImage('gallery/nina-6409.jpg'),
-    alt: 'Nina performing at Takeover',
-    caption: 'Nina Live',
-    description: 'Nina brought soulful pop and R&B to Takeover — July 4.',
+    src: meetingNotesImage('mayonnaise.png'),
+    alt: 'Mayonnaise performing at Takeover',
+    caption: 'Mayonnaise Live',
+    description: 'Mayonnaise brought alternative rock energy to Takeover — January 24.',
+  },
+  {
+    src: meetingNotesImage('apl-de-ap-live.png'),
+    alt: 'Apl.de.Ap performing at Takeover',
+    caption: 'Apl.de.Ap Live',
+    description: 'Apl.de.Ap on stage at Takeover Festival.',
+  },
+  {
+    src: meetingNotesImage('gloc-9.png'),
+    alt: 'Gloc-9 Takeover Beach Music Festival poster',
+    caption: 'Gloc-9',
+    description: 'Gloc-9 headlining Takeover Beach Music Festival at San Juan Beach, La Union.',
+  },
+  {
+    src: meetingNotesImage('beach-cleanup.png'),
+    alt: 'Volunteers at a coastal cleanup event',
+    caption: 'Coastal Cleanup',
+    description: 'Community volunteers removing plastic waste from the shoreline.',
+  },
+  {
+    src: meetingNotesImage('beach-cleanup-2.png'),
+    alt: 'Beach cleanup volunteers along the rocky shore',
+    caption: 'Beach Cleanup Drive',
+    description: 'Festival community causes in action — protecting La Union\'s coast.',
+  },
+  {
+    src: meetingNotesImage('festival-experience.png'),
+    alt: 'Live band performing at Takeover Lounge',
+    caption: 'Takeover Lounge',
+    description: 'The energy of Takeover live — music, crowd, and festival atmosphere.',
   },
   {
     src: takeoverImage('gallery/paramore-night-28.jpg'),
@@ -348,7 +380,7 @@ export const COMMUNITY_CAUSES = [
     slug: 'beach-cleanup',
     title: 'Beach Cleanup',
     shortBlurb: 'Morning shoreline sessions with festival-goers and local partners.',
-    image: causeImage('beach-cleanup', '01.png'),
+    image: meetingNotesImage('beach-cleanup.png'),
     icon: 'waves' as const,
     description:
       'Every Takeover Festival begins with purpose. Our beach cleanup program mobilizes volunteers across Poro Point and San Fernando\'s coastline. Partnering with local LGUs, environmental NGOs, and coastal communities, we remove plastic waste, restore dunes, and educate participants on sustainable coastal practices.',
@@ -357,7 +389,7 @@ export const COMMUNITY_CAUSES = [
       'Nov 27 · 8 AM — Main festival cleanup drive',
       'Nov 29 · 6 AM — Final coastal sweep before finale',
     ],
-    images: causeGallery('beach-cleanup', 1, 'png'),
+    images: [meetingNotesImage('beach-cleanup.png'), meetingNotesImage('beach-cleanup-2.png')],
     videos: [] as const,
   },
   {
@@ -380,7 +412,7 @@ export const COMMUNITY_CAUSES = [
     slug: 'community-support',
     title: 'Community Support',
     shortBlurb: 'NGO and government partnerships for lasting coastal impact.',
-    image: takeoverImage('community.jpg'),
+    image: takeoverImage('crowd.jpg'),
     icon: 'heart' as const,
     description:
       'Takeover Festival channels tourism revenue into lasting community benefit. Through partnerships with local NGOs, government agencies, and social enterprises, we fund scholarships, support fisherfolk cooperatives, and invest in coastal livelihood programs. Every ticket sold contributes to programs that outlast the festival weekend.',
@@ -390,9 +422,8 @@ export const COMMUNITY_CAUSES = [
       'Nov 28 · 3 PM — Local enterprise marketplace',
     ],
     images: [
-      takeoverImage('community.jpg'),
-      takeoverImage('gallery/nina-6413.jpg'),
       takeoverImage('crowd.jpg'),
+      meetingNotesImage('festival-experience.png'),
     ],
     videos: [] as const,
   },
@@ -402,44 +433,58 @@ export const FESTIVAL_VILLAGE_ZONES = [
   {
     slug: 'wellness-experience-zone',
     title: 'Wellness Experience Zone',
-    shortBlurb: 'Sunrise yoga, fitness, and coastal wellness experiences.',
-    image: takeoverImage('wellness-golds.png'),
+    shortBlurb:
+      'Recharge your mind and body with yoga, meditation, recovery areas, massage, fitness sessions, and coastal wellness experiences.',
+    image: meetingNotesImage('apl-de-ap-live.png'),
+    href: '/expo/wellness-zone',
   },
   {
     slug: 'activities-zone',
     title: 'Activities Zone',
-    shortBlurb: 'Festival activities, games, and interactive experiences all day.',
-    image: takeoverImage('crowd.jpg'),
+    shortBlurb:
+      'HYROX-inspired fitness challenges, obstacle activities, sports games, and action-packed interactive experiences.',
+    image: meetingNotesImage('activities-zone.png'),
+    href: '/expo/the-takeover-zone',
   },
   {
-    slug: 'food-zone',
-    title: 'Food Zone',
-    shortBlurb: 'Food trucks, artisan stalls, and curated drink lounges.',
-    image: takeoverImage('food-park-heaven.png'),
+    slug: 'food-culinary-zone',
+    title: 'Food & Culinary Zone',
+    shortBlurb:
+      'Celebrity chefs, MasterChef-style competitions, culinary demonstrations, VIP kitchen, and world-class cuisine.',
+    image: meetingNotesImage('food-culinary.png'),
+    href: '/expo/food-park-heaven',
   },
   {
     slug: 'camping-village',
     title: 'Camping Village',
-    shortBlurb: 'Beachfront camping, glamping, and overnight stays under the stars.',
-    image: takeoverImage('experience.jpg'),
+    shortBlurb:
+      'Stay close to the excitement with beachfront camping, glamping tents, campfires, and unforgettable outdoor festival nights.',
+    image: meetingNotesImage('takeover-lounge.png'),
+    href: '/expo/camping-village',
   },
   {
     slug: 'tourism-expo',
     title: 'Tourism Expo',
-    shortBlurb: 'Destinations, businesses, and culture from across Region 1.',
-    image: takeoverImage('expo-crowd.jpg'),
+    shortBlurb:
+      'Explore the best destinations, attractions, culture, businesses, and tourism opportunities across Region 1.',
+    image: assetUrl('/images/dot-region.png'),
+    href: '/expo/dot-tourism-exhibition',
   },
   {
     slug: 'community-causes',
     title: 'Community Causes',
-    shortBlurb: 'Purpose-driven initiatives that protect the coast we love.',
-    image: takeoverImage('community.jpg'),
+    shortBlurb:
+      'Be part of beach cleanups, tree planting, mangrove restoration, and projects that create lasting environmental impact.',
+    image: meetingNotesImage('beach-cleanup-2.png'),
+    href: '/causes',
   },
   {
     slug: 'takeover-festival-experience',
     title: 'Takeover Festival Experience',
-    shortBlurb: 'The full Takeover journey — music, community, and coastal celebration.',
-    image: takeoverImage('venue.jpg'),
+    shortBlurb:
+      'Unforgettable performances, spectacular productions, immersive attractions, and the energy that makes Takeover unique.',
+    image: meetingNotesImage('festival-experience.png'),
+    href: '/expo/poro-point-baywalk-arena',
   },
 ] as const
 
@@ -448,7 +493,7 @@ export const EXPO_ITEMS = [
     slug: 'poro-point-baywalk-arena',
     title: 'Poro Point Baywalk Arena',
     shortBlurb: 'Cliffs, coves, and festival grounds overlooking the West Philippine Sea.',
-    image: takeoverImage('venue.jpg'),
+    image: meetingNotesImage('festival-experience.png'),
     description:
       'The heart of Takeover Festival. Poro Point Baywalk Arena offers stunning cliffside views, direct beach access, and a world-class main stage setup. The arena accommodates 20,000+ attendees across multiple zones including main stage, VIP pavilions, wellness area, and food park.',
     highlights: [
@@ -458,13 +503,13 @@ export const EXPO_ITEMS = [
       'Multiple F&B and merchandise zones',
     ],
     schedule: ['Nov 25–29 · Gates open daily at 12 PM'],
-    images: [takeoverImage('venue.jpg'), takeoverImage('gallery/paramore-night-03.jpg')],
+    images: [meetingNotesImage('festival-experience.png'), meetingNotesImage('activities-zone.png')],
   },
   {
     slug: 'dot-tourism-exhibition',
     title: 'DOT Tourism Exhibition',
     shortBlurb: 'Official Department of Tourism expo in twin white dome marquees.',
-    image: takeoverImage('expo-crowd.jpg'),
+    image: assetUrl('/images/dot-region.png'),
     description:
       'The official Department of Tourism exhibition showcases the best destinations, resorts, and experiences across Region 1 and the Philippines. Twin white dome marquees host travel agencies, hotel partners, adventure operators, and cultural exhibits — making Takeover a launchpad for Philippine tourism.',
     highlights: [
@@ -474,29 +519,29 @@ export const EXPO_ITEMS = [
       'Cultural performances and demos',
     ],
     schedule: ['Nov 27–28 · 10 AM – 8 PM daily'],
-    images: [takeoverImage('expo-crowd.jpg'), assetUrl('/images/dot-region.png')],
+    images: [assetUrl('/images/dot-region.png'), takeoverImage('expo-crowd.jpg')],
   },
   {
     slug: 'food-park-heaven',
-    title: 'Food Park Heaven',
-    shortBlurb: '50+ food trucks, artisanal seafood stalls, and curated drink lounges.',
-    image: takeoverImage('food-park-heaven.png'),
+    title: 'Food & Culinary Zone',
+    shortBlurb: 'Celebrity chefs, culinary demos, MasterChef-style competitions, and 50+ food stalls.',
+    image: meetingNotesImage('food-culinary.png'),
     description:
-      'La Union is a culinary destination, and our Food Park Heaven brings the best of it to the festival. Over 50 vendors serve everything from fresh grilled seafood and local delicacies to international street food, craft cocktails, and specialty coffee — all with ocean views.',
+      'La Union is a culinary destination, and our Food & Culinary Zone brings the best of it to the festival. Executive Chef Bill Golding, the Chefs Cooperative, and CCA Manila lead live cooking demonstrations, MasterChef-style competitions, and a VIP kitchen experience — alongside 50+ vendors serving fresh seafood, local delicacies, and international street food with ocean views.',
     highlights: [
+      'Executive Chef Bill Golding & celebrity chef showcases',
+      'MasterChef-style cooking competition',
       '50+ food trucks and artisan stalls',
-      'Fresh La Union seafood specialties',
-      'Craft cocktail and drink lounges',
-      'Late-night bites through the finale',
+      'VIP kitchen and culinary exhibition',
     ],
     schedule: ['Nov 25–29 · 12 PM – 12 AM daily'],
-    images: [takeoverImage('food-park-heaven.png')],
+    images: [meetingNotesImage('food-culinary.png'), meetingNotesImage('takeover-lounge.png')],
   },
   {
     slug: 'wellness-zone',
     title: "Gold's PH Wellness Zone",
     shortBlurb: 'Sunrise yoga, meditation, fitness sessions, and coastal wellness experiences.',
-    image: takeoverImage('wellness-golds.png'),
+    image: meetingNotesImage('apl-de-ap-live.png'),
     description:
       "Balance the party with purpose. Gold's PH Wellness Zone offers sunrise yoga on the beach, guided meditation, fitness sessions with Gold's Gym trainers, cold plunge dips, and holistic wellness workshops. A space to recharge body and mind between sets.",
     highlights: [
@@ -506,13 +551,13 @@ export const EXPO_ITEMS = [
       'Holistic wellness workshops',
     ],
     schedule: ['Nov 26–29 · 6 AM – 11 AM daily'],
-    images: [takeoverImage('wellness-golds.png')],
+    images: [meetingNotesImage('apl-de-ap-live.png'), meetingNotesImage('apl-de-ap.png')],
   },
   {
     slug: 'cca-culinary',
     title: 'CCA Culinary',
     shortBlurb: 'Live demos, chef showcases, and hands-on culinary experiences from CCA Manila.',
-    image: takeoverImage('food-park.jpg'),
+    image: meetingNotesImage('food-culinary.png'),
     description:
       'CCA Culinary brings world-class culinary education to the coast. Watch live cooking demonstrations from CCA Manila chefs, sample signature dishes, and explore pop-up kitchens featuring La Union ingredients. A destination for food lovers who want more than a food truck lineup.',
     highlights: [
@@ -522,13 +567,13 @@ export const EXPO_ITEMS = [
       'Hands-on workshops for festival-goers',
     ],
     schedule: ['Nov 27–28 · 11 AM – 7 PM daily'],
-    images: [takeoverImage('food-park.jpg'), takeoverImage('gallery/paramore-night-01.jpg')],
+    images: [meetingNotesImage('food-culinary.png'), meetingNotesImage('takeover-lounge.png')],
   },
   {
     slug: 'camping-village',
     title: 'Camping Village',
     shortBlurb: 'Beachfront camping, glamping tents, and overnight stays under the stars.',
-    image: takeoverImage('experience.jpg'),
+    image: meetingNotesImage('takeover-lounge.png'),
     description:
       'Stay where the festival lives. Camping Village offers beachfront tent sites, premium glamping setups, and communal fire pits steps from the main stage. Wake up to sunrise over the West Philippine Sea and roll straight into the day\'s lineup.',
     highlights: [
@@ -538,13 +583,13 @@ export const EXPO_ITEMS = [
       'Steps from main stage and food park',
     ],
     schedule: ['Nov 25–29 · Check-in from 2 PM daily'],
-    images: [takeoverImage('experience.jpg'), takeoverImage('venue.jpg')],
+    images: [meetingNotesImage('takeover-lounge.png'), meetingNotesImage('activities-zone.png')],
   },
   {
     slug: 'culture-and-arts-zone',
     title: 'Culture and Arts Zone',
     shortBlurb: 'Local artisans, live performances, and Ilocano heritage on display.',
-    image: takeoverImage('community.jpg'),
+    image: meetingNotesImage('beach-cleanup-2.png'),
     description:
       'Celebrate the soul of La Union. The Culture and Arts Zone spotlights Ilocano heritage through artisan markets, weaving and pottery demos, live folk performances, and contemporary art installations. A space where coastal culture meets festival energy.',
     highlights: [
@@ -554,13 +599,13 @@ export const EXPO_ITEMS = [
       'Open-air gallery and mural walk',
     ],
     schedule: ['Nov 26–29 · 10 AM – 9 PM daily'],
-    images: [takeoverImage('community.jpg'), takeoverImage('gallery/paramore-night-19.jpg')],
+    images: [meetingNotesImage('beach-cleanup-2.png'), meetingNotesImage('beach-cleanup.png')],
   },
   {
     slug: 'the-takeover-zone',
     title: 'The Takeover Zone',
     shortBlurb: 'Brand activations, merch drops, and the pulse of Takeover Festival.',
-    image: takeoverImage('crowd.jpg'),
+    image: meetingNotesImage('activities-zone.png'),
     description:
       'The beating heart of the festival brand. The Takeover Zone hosts exclusive merch drops, partner activations, photo moments, and surprise pop-up performances. This is where the Takeover community gathers between sets.',
     highlights: [
@@ -570,7 +615,7 @@ export const EXPO_ITEMS = [
       'Surprise pop-up sets and meet-and-greets',
     ],
     schedule: ['Nov 25–29 · 12 PM – 12 AM daily'],
-    images: [takeoverImage('crowd.jpg'), takeoverImage('gallery/paramore-night-28.jpg')],
+    images: [meetingNotesImage('activities-zone.png'), meetingNotesImage('festival-experience.png')],
   },
 ] as const
 

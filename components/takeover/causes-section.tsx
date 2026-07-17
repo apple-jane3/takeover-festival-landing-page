@@ -14,7 +14,7 @@ export function CausesSection() {
             Community Causes
           </h2>
           <p className="mt-3 text-pretty text-base leading-relaxed text-white/75">
-            Every beat has a purpose. Party with impact on the environment we love.
+            Every beat has a cause. Party with impact on the environment we love.
           </p>
         </Reveal>
 
