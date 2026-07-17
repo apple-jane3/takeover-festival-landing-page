@@ -24,9 +24,7 @@ export function VenuePartnerSection() {
             {VENUE_PARTNER_MEDIA.map((item) => (
               <div
                 key={item.alt}
-                className={`relative overflow-hidden rounded-2xl shadow-md ring-1 ring-black/5 ${MEDIA_SAND} ${
-                  item.type === 'video' ? 'col-span-2 aspect-video' : 'aspect-[4/5]'
-                }`}
+                className={`relative overflow-hidden rounded-2xl shadow-md ring-1 ring-black/5 ${MEDIA_SAND} aspect-[4/3]`}
               >
                 {item.type === 'image' ? (
                   <Image

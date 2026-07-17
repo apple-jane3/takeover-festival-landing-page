@@ -165,19 +165,23 @@ export const VENUE_PARTNER = {
 export const VENUE_PARTNER_MEDIA = [
   {
     type: 'image' as const,
-    src: takeoverImage('venue.jpg'),
-    alt: 'Aerial view of Poro Point coastline and festival grounds',
+    src: takeoverImage('baywalk/01-day-stage.png'),
+    alt: 'Live band performing at Poro Point Baywalk Arena by day',
   },
   {
     type: 'image' as const,
-    src: takeoverImage('countdown.jpg'),
-    alt: 'Poro Point cliffside overlooking the bay',
+    src: takeoverImage('baywalk/02-night-stage.png'),
+    alt: 'Nighttime stage performance at Poro Point Baywalk Arena',
   },
   {
-    type: 'video' as const,
-    src: takeoverVideo('hero-day.mp4'),
-    poster: takeoverImage('venue.jpg'),
-    alt: 'Daytime views of Poro Point Freeport Zone',
+    type: 'image' as const,
+    src: takeoverImage('baywalk/03-glow-crowd.png'),
+    alt: 'Festival crowd at Poro Point Baywalk during a night event',
+  },
+  {
+    type: 'image' as const,
+    src: takeoverImage('baywalk/04-gloc9.png'),
+    alt: 'Gloc-9 performing at Poro Point Baywalk Arena',
   },
 ] as const
 
@@ -459,7 +463,7 @@ export const FESTIVAL_VILLAGE_ZONES = [
     title: 'Camping Village',
     shortBlurb:
       'Stay close to the excitement with beachfront camping, glamping tents, campfires, and unforgettable outdoor festival nights.',
-    image: meetingNotesImage('takeover-lounge.png'),
+    image: takeoverImage('camping/01-lounge.png'),
     href: '/expo/camping-village',
   },
   {
@@ -483,7 +487,7 @@ export const FESTIVAL_VILLAGE_ZONES = [
     title: 'Takeover Festival Experience',
     shortBlurb:
       'Unforgettable performances, spectacular productions, immersive attractions, and the energy that makes Takeover unique.',
-    image: meetingNotesImage('festival-experience.png'),
+    image: takeoverImage('baywalk/01-day-stage.png'),
     href: '/expo/poro-point-baywalk-arena',
   },
 ] as const
@@ -493,7 +497,7 @@ export const EXPO_ITEMS = [
     slug: 'poro-point-baywalk-arena',
     title: 'Poro Point Baywalk Arena',
     shortBlurb: 'Cliffs, coves, and festival grounds overlooking the West Philippine Sea.',
-    image: meetingNotesImage('festival-experience.png'),
+    image: takeoverImage('baywalk/01-day-stage.png'),
     description:
       'The heart of Takeover Festival. Poro Point Baywalk Arena offers stunning cliffside views, direct beach access, and a world-class main stage setup. The arena accommodates 20,000+ attendees across multiple zones including main stage, VIP pavilions, wellness area, and food park.',
     highlights: [
@@ -503,7 +507,12 @@ export const EXPO_ITEMS = [
       'Multiple F&B and merchandise zones',
     ],
     schedule: ['Nov 25–29 · Gates open daily at 12 PM'],
-    images: [meetingNotesImage('festival-experience.png'), meetingNotesImage('activities-zone.png')],
+    images: [
+      takeoverImage('baywalk/01-day-stage.png'),
+      takeoverImage('baywalk/02-night-stage.png'),
+      takeoverImage('baywalk/03-glow-crowd.png'),
+      takeoverImage('baywalk/04-gloc9.png'),
+    ],
   },
   {
     slug: 'dot-tourism-exhibition',
@@ -573,7 +582,7 @@ export const EXPO_ITEMS = [
     slug: 'camping-village',
     title: 'Camping Village',
     shortBlurb: 'Beachfront camping, glamping tents, and overnight stays under the stars.',
-    image: meetingNotesImage('takeover-lounge.png'),
+    image: takeoverImage('camping/01-lounge.png'),
     description:
       'Stay where the festival lives. Camping Village offers beachfront tent sites, premium glamping setups, and communal fire pits steps from the main stage. Wake up to sunrise over the West Philippine Sea and roll straight into the day\'s lineup.',
     highlights: [
@@ -583,7 +592,15 @@ export const EXPO_ITEMS = [
       'Steps from main stage and food park',
     ],
     schedule: ['Nov 25–29 · Check-in from 2 PM daily'],
-    images: [meetingNotesImage('takeover-lounge.png'), meetingNotesImage('activities-zone.png')],
+    images: [
+      takeoverImage('camping/01-lounge.png'),
+      takeoverImage('camping/02-tents.png'),
+      takeoverImage('camping/03-group.png'),
+      takeoverImage('camping/04-friends.png'),
+      takeoverImage('camping/05-couple.png'),
+      takeoverImage('camping/06-artists.png'),
+      takeoverImage('camping/07-family.png'),
+    ],
   },
   {
     slug: 'culture-and-arts-zone',
