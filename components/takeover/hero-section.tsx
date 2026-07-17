@@ -89,12 +89,8 @@ export function HeroSection() {
           aria-hidden="true"
         />
 
-        <p className="mt-3 max-w-xl text-sm font-semibold tracking-[0.22em] text-white/95 drop-shadow-[0_2px_10px_rgba(0,0,0,0.55)] sm:mt-4 sm:text-base md:text-lg [@media(max-height:720px)]:mt-3 [@media(max-height:720px)]:text-xs [@media(max-height:720px)]:tracking-[0.18em]">
-          BEACH MUSIC FESTIVAL
-          <span className="mx-2 text-gold/90" aria-hidden="true">
-            ·
-          </span>
-          PARTY WITH A CAUSE
+        <p className="mt-3 whitespace-nowrap text-[clamp(0.625rem,2.6vw,1.125rem)] font-semibold tracking-[0.14em] text-white/95 drop-shadow-[0_2px_10px_rgba(0,0,0,0.55)] sm:mt-4 sm:tracking-[0.18em] md:text-lg [@media(max-height:720px)]:mt-3 [@media(max-height:720px)]:text-[0.625rem] [@media(max-height:720px)]:tracking-[0.12em]">
+          BEACH MUSIC FESTIVAL<span className="text-gold/90" aria-hidden="true">·</span>PARTY WITH A CAUSE
         </p>
       </div>
     </section>
