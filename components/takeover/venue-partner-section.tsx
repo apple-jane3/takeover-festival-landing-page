@@ -26,26 +26,14 @@ export function VenuePartnerSection() {
                 key={item.alt}
                 className={`relative overflow-hidden rounded-2xl shadow-md ring-1 ring-black/5 ${MEDIA_SAND} aspect-[4/3]`}
               >
-                {item.type === 'image' ? (
-                  <Image
-                    src={item.src}
-                    alt={item.alt}
-                    fill
-                    sizes="(max-width: 1024px) 50vw, 25vw"
-                    loading="lazy"
-                    className="object-cover"
-                  />
-                ) : (
-                  <video
-                    controls
-                    playsInline
-                    preload="metadata"
-                    poster={item.poster}
-                    className="h-full w-full object-cover"
-                  >
-                    <source src={item.src} type="video/mp4" />
-                  </video>
-                )}
+                <Image
+                  src={item.src}
+                  alt={item.alt}
+                  fill
+                  sizes="(max-width: 1024px) 50vw, 25vw"
+                  loading="lazy"
+                  className="object-cover"
+                />
               </div>
             ))}
           </Reveal>
