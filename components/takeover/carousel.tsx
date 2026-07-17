@@ -14,6 +14,7 @@ export type Slide = {
 }
 
 const SWIPE_THRESHOLD = 48
+const DRAG_ACTIVATE = 8
 
 function useSlidesPerView() {
   const [slidesPerView, setSlidesPerView] = useState(1)
@@ -44,10 +45,18 @@ function useSlidesPerView() {
   return slidesPerView
 }
 
-function CarouselSlide({ slide, linkTo }: { slide: Slide; linkTo?: string }) {
+function CarouselSlide({
+  slide,
+  linkTo,
+  blockClick,
+}: {
+  slide: Slide
+  linkTo?: string
+  blockClick: () => boolean
+}) {
   const destination = slide.href ?? linkTo
   const card = (
-    <article className="group overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition-transform hover:-translate-y-1 hover:shadow-md">
+    <article className="group h-full overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition-transform hover:-translate-y-1 hover:shadow-md">
       <RowMediaImage
         src={slide.src}
         alt={slide.alt}
@@ -81,7 +90,13 @@ function CarouselSlide({ slide, linkTo }: { slide: Slide; linkTo?: string }) {
 
   if (destination) {
     return (
-      <Link to={destination} className="block">
+      <Link
+        to={destination}
+        className="block h-full"
+        onClick={(event) => {
+          if (blockClick()) event.preventDefault()
+        }}
+      >
         {card}
       </Link>
     )
@@ -122,52 +137,76 @@ export function Carousel({
     setIndex((current) => Math.min(current, maxIndex))
   }, [maxIndex])
 
-  const timer = useRef<ReturnType<typeof setInterval> | null>(null)
   useEffect(() => {
     if (paused || dragging || count <= slidesPerView) return
-    timer.current = setInterval(() => {
+    const timer = setInterval(() => {
       setIndex((current) => (current >= maxIndex ? 0 : current + 1))
     }, autoPlayMs)
-    return () => {
-      if (timer.current) clearInterval(timer.current)
-    }
+    return () => clearInterval(timer)
   }, [paused, dragging, count, slidesPerView, maxIndex, autoPlayMs])
 
-  const viewportRef = useRef<HTMLDivElement>(null)
   const startX = useRef(0)
   const activePointer = useRef<number | null>(null)
+  const didSwipe = useRef(false)
+  const dragActive = useRef(false)
+
+  const blockClick = useCallback(() => didSwipe.current, [])
 
   const onPointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
     if (event.pointerType === 'mouse' && event.button !== 0) return
     activePointer.current = event.pointerId
     startX.current = event.clientX
-    setDragging(true)
+    didSwipe.current = false
+    dragActive.current = false
     setPaused(true)
-    event.currentTarget.setPointerCapture(event.pointerId)
   }
 
   const onPointerMove = (event: React.PointerEvent<HTMLDivElement>) => {
     if (activePointer.current !== event.pointerId) return
-    setDragOffset(event.clientX - startX.current)
+    const delta = event.clientX - startX.current
+
+    if (!dragActive.current && Math.abs(delta) >= DRAG_ACTIVATE) {
+      dragActive.current = true
+      didSwipe.current = true
+      setDragging(true)
+      event.currentTarget.setPointerCapture(event.pointerId)
+    }
+
+    if (dragActive.current) {
+      setDragOffset(delta)
+    }
   }
 
   const endDrag = (event: React.PointerEvent<HTMLDivElement>) => {
     if (activePointer.current !== event.pointerId) return
     const delta = event.clientX - startX.current
-    if (delta > SWIPE_THRESHOLD) prev()
-    else if (delta < -SWIPE_THRESHOLD) next()
+
+    if (dragActive.current) {
+      if (delta > SWIPE_THRESHOLD) prev()
+      else if (delta < -SWIPE_THRESHOLD) next()
+      try {
+        event.currentTarget.releasePointerCapture(event.pointerId)
+      } catch {
+        /* already released */
+      }
+    }
+
     activePointer.current = null
+    dragActive.current = false
     setDragging(false)
     setDragOffset(0)
     setPaused(false)
-    event.currentTarget.releasePointerCapture(event.pointerId)
+
+    window.setTimeout(() => {
+      didSwipe.current = false
+    }, 0)
   }
 
   const dotCount = maxIndex + 1
 
   return (
     <div
-      className="relative select-none"
+      className="relative"
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
       role="region"
@@ -175,8 +214,7 @@ export function Carousel({
       aria-label={ariaLabel}
     >
       <div
-        ref={viewportRef}
-        className="overflow-hidden"
+        className="overflow-hidden touch-pan-y"
         onPointerDown={onPointerDown}
         onPointerMove={onPointerMove}
         onPointerUp={endDrag}
@@ -198,7 +236,7 @@ export function Carousel({
               style={{ flexBasis: `${slideBasis}%` }}
               aria-hidden={i < index || i >= index + slidesPerView}
             >
-              <CarouselSlide slide={slide} linkTo={linkTo} />
+              <CarouselSlide slide={slide} linkTo={linkTo} blockClick={blockClick} />
             </div>
           ))}
         </div>

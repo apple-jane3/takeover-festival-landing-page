@@ -435,7 +435,7 @@ export const FESTIVAL_VILLAGE_ZONES = [
     title: 'Wellness Experience Zone',
     shortBlurb:
       'Recharge your mind and body with yoga, meditation, recovery areas, massage, fitness sessions, and coastal wellness experiences.',
-    image: meetingNotesImage('apl-de-ap-live.png'),
+    image: takeoverImage('wellness-golds.png'),
     href: '/expo/wellness-zone',
   },
   {
@@ -541,7 +541,7 @@ export const EXPO_ITEMS = [
     slug: 'wellness-zone',
     title: "Gold's PH Wellness Zone",
     shortBlurb: 'Sunrise yoga, meditation, fitness sessions, and coastal wellness experiences.',
-    image: meetingNotesImage('apl-de-ap-live.png'),
+    image: takeoverImage('wellness-golds.png'),
     description:
       "Balance the party with purpose. Gold's PH Wellness Zone offers sunrise yoga on the beach, guided meditation, fitness sessions with Gold's Gym trainers, cold plunge dips, and holistic wellness workshops. A space to recharge body and mind between sets.",
     highlights: [
@@ -551,7 +551,7 @@ export const EXPO_ITEMS = [
       'Holistic wellness workshops',
     ],
     schedule: ['Nov 26–29 · 6 AM – 11 AM daily'],
-    images: [meetingNotesImage('apl-de-ap-live.png'), meetingNotesImage('apl-de-ap.png')],
+    images: [takeoverImage('wellness-golds.png')],
   },
   {
     slug: 'cca-culinary',
