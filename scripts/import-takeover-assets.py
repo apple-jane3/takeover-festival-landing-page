@@ -83,8 +83,6 @@ def main() -> None:
     (SRC / "NINA (07-04)" / "IMG_6430.JPG", "gallery/nina-6430.jpg", MAX_WIDTH),
     (SRC / "PARAMORE NIGHT (06-27)" / "FIONA" / "IMG_6221.JPG", "gallery/fiona-6221.jpg", MAX_WIDTH),
     (SRC / "PARAMORE NIGHT (06-27)" / "PIXIEDAZE" / "IMG_6109.JPG", "gallery/pixiedaze-6109.jpg", MAX_WIDTH),
-    (SRC / "MYMP (07-01)" / "PHOTOS AND VIDEOS" / "BEST SHOTS" / "1.CR2", "artists/mymp.jpg", THUMB_WIDTH),
-    (SRC / "MYMP (07-01)" / "PHOTOS AND VIDEOS" / "BEST SHOTS" / "10.CR2", "artists/mymp-alt.jpg", THUMB_WIDTH),
     (SRC / "NINA (07-04)" / "IMG_6409.JPG", "artists/nina.jpg", THUMB_WIDTH),
     (SRC / "SIAKOL & THE YOUTH (07-04)" / "SIAKOL" / "IMG_7676.CR2", "artists/siakol.jpg", THUMB_WIDTH),
     (SRC / "SIAKOL & THE YOUTH (07-04)" / "THE YOUTH" / "IMG_7640.CR2", "artists/the-youth.jpg", THUMB_WIDTH),

@@ -41,9 +41,9 @@ VIDEO_EXPORTS: list[tuple[Path, str, float | None, bool, float, str | None]] = [
         None,
     ),
     (
-        SRC / "MYMP (07-01)" / "PHOTOS AND VIDEOS" / "MVI_7586.MOV",
-        "highlights/mymp.mp4",
-        30,
+        CLIENT_ASSETS / "MYMP - Kailan (Live at TakeOver Lounge).mp4",
+        "highlights/mymp-kailan.mp4",
+        None,
         True,
         0,
         None,
