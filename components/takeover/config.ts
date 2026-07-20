@@ -247,36 +247,182 @@ export const PARTNER_BENEFITS = [
   },
 ] as const
 
+export type ArtistSocialLinks = {
+  facebook?: string
+  instagram?: string
+  tiktok?: string
+  youtube?: string
+  spotify?: string
+}
+
+export type ArtistRelease = {
+  title: string
+  type: 'single' | 'album' | 'ep'
+  year: string
+  url: string
+}
+
 export const FEATURED_ARTISTS = [
   {
+    slug: 'mymp',
     name: 'MYMP',
     genre: 'OPM',
     date: 'Takeover · July 1',
     src: takeoverImage('artists/mymp.jpg'),
+    shortBlurb: 'Acoustic soul and timeless OPM ballads that defined a generation.',
+    biography:
+      'MYMP (Make Your Mama Proud) is one of the Philippines\' most beloved acoustic acts, known for heartfelt covers and originals that blend R&B, pop, and soul. Their intimate live sets have made them a staple of beach festivals and lounge stages across the country — including a standout Takeover performance on July 1.',
+    images: [takeoverImage('artists/mymp.jpg'), takeoverImage('artists/mymp-alt.jpg')],
+    videos: [takeoverVideo('highlights/mymp.mp4')],
+    social: {
+      facebook: 'https://www.facebook.com/MYMPMusic',
+      instagram: 'https://www.instagram.com/mympmusic/',
+      youtube: 'https://www.youtube.com/@MYMPMusic',
+      spotify: 'https://open.spotify.com/artist/4Y5tC8x8vXJj0XoLGhqoSg',
+    },
+    releases: [
+      {
+        title: 'Tell Me Where It Hurts',
+        type: 'single',
+        year: '2004',
+        url: 'https://open.spotify.com/search/Tell%20Me%20Where%20It%20Hurts%20MYMP',
+      },
+      {
+        title: 'Hide',
+        type: 'single',
+        year: '2006',
+        url: 'https://open.spotify.com/search/Hide%20MYMP',
+      },
+    ],
   },
   {
+    slug: 'apl-de-ap',
     name: 'Apl.de.Ap',
     genre: 'Hip-Hop',
     date: 'Takeover · 2026',
     src: meetingNotesImage('apl-de-ap.png'),
+    shortBlurb: 'Black Eyed Peas co-founder bringing global hip-hop home to La Union.',
+    biography:
+      'Allan Pineda Lindo, known as Apl.de.Ap, is a founding member of the Black Eyed Peas and one of the most internationally recognized Filipino artists in music. Born in Angeles City and raised in the United States, he has bridged Filipino culture and global hip-hop for decades — and returns to Takeover Festival in 2026.',
+    images: [meetingNotesImage('apl-de-ap.png'), meetingNotesImage('apl-de-ap-live.png')],
+    videos: [] as const,
+    social: {
+      facebook: 'https://www.facebook.com/apldeap',
+      instagram: 'https://www.instagram.com/apldeap/',
+      youtube: 'https://www.youtube.com/@apldeap',
+      tiktok: 'https://www.tiktok.com/@apldeap',
+      spotify: 'https://open.spotify.com/artist/6sFIWsNpZYqfjUpaCgueju',
+    },
+    releases: [
+      {
+        title: 'We Can Be Anything',
+        type: 'single',
+        year: '2012',
+        url: 'https://open.spotify.com/search/We%20Can%20Be%20Anything%20Apl.de.Ap',
+      },
+      {
+        title: 'No Fun',
+        type: 'single',
+        year: '2020',
+        url: 'https://open.spotify.com/search/No%20Fun%20Apl.de.Ap',
+      },
+    ],
   },
   {
+    slug: 'gloc-9',
     name: 'Gloc-9',
     genre: 'Hip-Hop',
     date: 'Takeover · 2026',
     src: meetingNotesImage('gloc-9.png'),
+    shortBlurb: 'The Philippines\' foremost storyteller in Filipino hip-hop.',
+    biography:
+      'Aristotle Pollisco, professionally known as Gloc-9, is widely regarded as the greatest Filipino rapper of his generation. His razor-sharp lyricism, social commentary, and mastery of both Tagalog and English have earned him a devoted following. Gloc-9 headlines Takeover Beach Music Festival in 2026.',
+    images: [meetingNotesImage('gloc-9.png'), takeoverImage('baywalk/04-gloc9.png')],
+    videos: [] as const,
+    social: {
+      facebook: 'https://www.facebook.com/gloc9official',
+      instagram: 'https://www.instagram.com/gloc9official/',
+      youtube: 'https://www.youtube.com/@gloc9official',
+      spotify: 'https://open.spotify.com/artist/6dI1D5rP2XUyVzc8T0z8yG',
+    },
+    releases: [
+      {
+        title: 'Upuan',
+        type: 'single',
+        year: '2009',
+        url: 'https://open.spotify.com/search/Upuan%20Gloc-9',
+      },
+      {
+        title: 'Simpleng Tao',
+        type: 'single',
+        year: '2004',
+        url: 'https://open.spotify.com/search/Simpleng%20Tao%20Gloc-9',
+      },
+    ],
   },
   {
+    slug: 'mayonnaise',
     name: 'Mayonnaise',
     genre: 'Alternative Rock',
     date: 'Takeover · January 24',
     src: meetingNotesImage('mayonnaise.png'),
+    shortBlurb: 'Alternative rock anthems that turn every crowd into a singalong.',
+    biography:
+      'Mayonnaise is a Filipino alternative rock band formed in the early 2000s, beloved for anthems like "Jopay" and "Bakit Part 2." Their high-energy live shows and melodic hooks have made them a festival favorite across the Philippines — including a packed set at Takeover Lounge on January 24.',
+    images: [meetingNotesImage('mayonnaise.png'), takeoverImage('artists/mayonnaise.jpg')],
+    videos: [takeoverVideo('highlights/mayonnaise.mp4')],
+    social: {
+      facebook: 'https://www.facebook.com/MayonnaiseBand',
+      instagram: 'https://www.instagram.com/mayonnaiseband/',
+      youtube: 'https://www.youtube.com/@MayonnaiseBand',
+      spotify: 'https://open.spotify.com/artist/5vQqXqXqXqXqXqXqXqXqXq',
+    },
+    releases: [
+      {
+        title: 'Jopay',
+        type: 'single',
+        year: '2005',
+        url: 'https://open.spotify.com/search/Jopay%20Mayonnaise',
+      },
+      {
+        title: 'Bakit Part 2',
+        type: 'single',
+        year: '2008',
+        url: 'https://open.spotify.com/search/Bakit%20Part%202%20Mayonnaise',
+      },
+    ],
   },
   {
+    slug: 'siakol',
     name: 'Siakol',
     genre: 'Rock',
     date: 'Takeover · July 4',
     src: takeoverImage('artists/siakol.jpg'),
+    shortBlurb: 'Pinoy rock legends with decades of festival-fueling energy.',
+    biography:
+      'Siakol is a pioneering Filipino rock band that rose to fame in the late 1990s with hits like "Itaktak Mo" and "Bakit Ba." Their raw, energetic performances and working-class anthems have made them a staple of Philippine rock festivals — including a fiery Takeover set on July 4.',
+    images: [takeoverImage('artists/siakol.jpg')],
+    videos: [] as const,
+    social: {
+      facebook: 'https://www.facebook.com/SiakolOfficial',
+      instagram: 'https://www.instagram.com/siakolofficial/',
+      youtube: 'https://www.youtube.com/@SiakolOfficial',
+      spotify: 'https://open.spotify.com/artist/7vQqXqXqXqXqXqXqXqXqXq',
+    },
+    releases: [
+      {
+        title: 'Itaktak Mo',
+        type: 'single',
+        year: '1999',
+        url: 'https://open.spotify.com/search/Itaktak%20Mo%20Siakol',
+      },
+      {
+        title: 'Bakit Ba',
+        type: 'single',
+        year: '2001',
+        url: 'https://open.spotify.com/search/Bakit%20Ba%20Siakol',
+      },
+    ],
   },
 ] as const
 
@@ -746,4 +892,8 @@ export function getCauseBySlug(slug: string) {
 
 export function getExpoBySlug(slug: string) {
   return EXPO_ITEMS.find((e) => e.slug === slug)
+}
+
+export function getArtistBySlug(slug: string) {
+  return FEATURED_ARTISTS.find((artist) => artist.slug === slug)
 }
